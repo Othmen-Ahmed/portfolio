@@ -230,7 +230,7 @@ const Resume = () => {
                     <div
                       className="progress-bar bg-danger"
                       role="progressbar"
-                      style={{ width: "90%" }}
+                      style={{ width: "100%" }}
                       aria-valuenow={25}
                       aria-valuemin={0}
                       aria-valuemax={100}
@@ -241,7 +241,7 @@ const Resume = () => {
                     <div
                       className="progress-bar bg-danger"
                       role="progressbar"
-                      style={{ width: "90%" }}
+                      style={{ width: "100%" }}
                       aria-valuenow={25}
                       aria-valuemin={0}
                       aria-valuemax={100}
@@ -324,16 +324,23 @@ const Resume = () => {
                 </div>
                 <div className="card-body px-4 py-3">
                   <h5 className="mb-3 card-title text-dark">
-                    ABB 800xA: Expert Optimizer
+                    ABB Ability™ Expert Optimizer for mining
                   </h5>
                   <p className="subtitle">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Ullam commodi provident, dolores reiciendis enim pariatur
-                    error optio, tempora ex, nihil nesciunt! In praesentium sunt
-                    commodi, unde ipsam ex veritatis laboriosam dolor asperiores
-                    suscipit blanditiis, dignissimos quos nesciunt nulla aperiam
-                    officia.
+                    Assisted in the integration of Advanced Process Control
+                    (APC) applications utilizing Model Predictive Control (MPC)
+                    technology to stabilize production and maximize
+                    profitability, customized to meet client-specific
+                    requirements.
                   </p>
+                  <figure class="text-center">
+                    <img
+                      src="./assets/imgs/optimization-with-apc.jpg"
+                      alt="MPC Optimization"
+                      class="img-fluid"
+                    />
+                    <figcaption>MPC Optimization with ABB APC</figcaption>
+                  </figure>
                 </div>
               </div>
             </div>
@@ -343,14 +350,18 @@ const Resume = () => {
                   <i className="ti-write text-danger" aria-hidden="true" />
                 </div>
                 <div className="card-body px-4 py-3">
-                  <h5 className="mb-3 card-title text-dark">ABB LIMS</h5>
+                  <h5 className="mb-3 card-title text-dark">
+                    Laboratory Information Management System (LIMS) for cement
+                    manufacturing
+                  </h5>
                   <p className="subtitle">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Ullam commodi provident, dolores reiciendis enim pariatur
-                    error optio, tempora ex, nihil nesciunt! In praesentium sunt
-                    commodi, unde ipsam ex veritatis laboriosam dolor asperiores
-                    suscipit blanditiis, dignissimos quos nesciunt nulla aperiam
-                    officia.
+                    Implemented and optimized LIMS (Laboratory Information
+                    Management Systems) to enhance cement quality control by
+                    tracking raw materials, fuels, and final products, ensuring
+                    compliance with ISO 14000 and 17025 standards. Improved
+                    accessibility and transparency of data for management and
+                    plant personnel through ABB Ability™ Knowledge Manager,
+                    streamlining workflow and reducing training efforts.
                   </p>
                 </div>
               </div>
@@ -361,14 +372,15 @@ const Resume = () => {
                   <i className="ti-package text-danger" aria-hidden="true" />
                 </div>
                 <div className="card-body px-4 py-3">
-                  <h5 className="mb-3 card-title text-dark">LoTo App</h5>
+                  <h5 className="mb-3 card-title text-dark">
+                    LoTo App (Work In Progress)
+                  </h5>
                   <p className="subtitle">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Ullam commodi provident, dolores reiciendis enim pariatur
-                    error optio, tempora ex, nihil nesciunt! In praesentium sunt
-                    commodi, unde ipsam ex veritatis laboriosam dolor asperiores
-                    suscipit blanditiis, dignissimos quos nesciunt nulla aperiam
-                    officia.
+                    Developing a Lockout/Tagout (LoTo) application using React
+                    JS, MongoDB, and OPC DA to streamline equipment isolation
+                    procedures, ensuring enhanced safety and compliance.
+                    Integrating real-time data handling with OPC DA for
+                    effective monitoring and control of equipment statuses.
                   </p>
                 </div>
               </div>
@@ -383,12 +395,11 @@ const Resume = () => {
                     Lime Stone Crusher Commisioning
                   </h5>
                   <p className="subtitle">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Ullam commodi provident, dolores reiciendis enim pariatur
-                    error optio, tempora ex, nihil nesciunt! In praesentium sunt
-                    commodi, unde ipsam ex veritatis laboriosam dolor asperiores
-                    suscipit blanditiis, dignissimos quos nesciunt nulla aperiam
-                    officia.
+                    Commissioned limestone crushers, applying logic controls in
+                    compliance with IEC standards for mining, ensuring
+                    operational safety, process optimization, and equipment
+                    efficiency through systematic testing and automation
+                    integration.
                   </p>
                 </div>
               </div>
@@ -403,12 +414,9 @@ const Resume = () => {
                     Bulk Loading Point Commisioning
                   </h5>
                   <p className="subtitle">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Ullam commodi provident, dolores reiciendis enim pariatur
-                    error optio, tempora ex, nihil nesciunt! In praesentium sunt
-                    commodi, unde ipsam ex veritatis laboriosam dolor asperiores
-                    suscipit blanditiis, dignissimos quos nesciunt nulla aperiam
-                    officia.
+                    Implemented a new bulk loading point using Siemens PCS7 :
+                    Developed and integrated new HMI and the required logic
+                    according to the process and mechanical specification.
                   </p>
                 </div>
               </div>
@@ -423,12 +431,10 @@ const Resume = () => {
                     Unitherm Berner Commisioning
                   </h5>
                   <p className="subtitle">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Ullam commodi provident, dolores reiciendis enim pariatur
-                    error optio, tempora ex, nihil nesciunt! In praesentium sunt
-                    commodi, unde ipsam ex veritatis laboriosam dolor asperiores
-                    suscipit blanditiis, dignissimos quos nesciunt nulla aperiam
-                    officia.
+                    Commissioned UniTherm burners in accordance with supplier
+                    specifications, ensuring optimal performance, safety
+                    compliance, and efficiency through precise calibration and
+                    system testing.
                   </p>
                 </div>
               </div>
@@ -443,7 +449,7 @@ const Resume = () => {
           <h1 className="mb-5">
             <span className="text-danger">My</span> Projects
           </h1>
-          <div className="portfolio">
+          {/* <div className="portfolio">
             <div className="filters">
               <a href="#" data-filter=".new" className="active">
                 New
@@ -721,7 +727,13 @@ const Resume = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
+
+          <p>
+            <span class="material-symbols-outlined">construction</span>
+            <h6>Work in Progress</h6>
+            <span class="material-symbols-outlined">construction</span>
+          </p>
         </div>
       </section>
       {/* End of portfolio section */}
