@@ -9,3 +9,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 This project is based on the free html template "john doe" `https://plantillashtmlgratis.com/en/todas-las-plantillas/plantilla/free-html-css-template-john-doe/`
 
+#To run this project locally
+    1- Run `npm install` from root directory
+    2-

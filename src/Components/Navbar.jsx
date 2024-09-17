@@ -2,16 +2,17 @@ import React, { useEffect, useState } from "react";
 
 const Navbar = () => {
 
-    // State to track if the user has scrolled
+    // Legacy no longer in use
     const [scrolled, setScrolled] = useState(false);
-    const [NavClass, setNavClass] = useState("");
+
+    const [NavClass, setNavClass] = useState("navbar sticky-top navbar-expand-lg navbar-light bg-white affix-top");
     
 
     // Function to handle scrolling
     useEffect(() => {
       const handleScroll = () => {
         const scrollPosition = window.scrollY;
-        if (scrollPosition > 550) { // Adjust this value as per your needs
+        if (scrollPosition > 550) { 
           setScrolled(true); // User scrolled past the threshold
           setNavClass("navbar sticky-top navbar-expand-lg navbar-light bg-white affix")
         } else {
@@ -119,14 +120,13 @@ const Navbar = () => {
             </ul>
 
             <ul className="navbar-nav brand">
-              {/* Conditionally render avatar image based on scroll state */}
-              {!scrolled && (
+            
                 <img
                   src="assets/imgs/avatar.jpg"
                   alt="Avatar"
                   className="brand-img"
                 />
-              )}
+              
               <li className="brand-txt scrolled">
                 <h5 className="brand-title">Ahmed OTHMAN</h5>
                 <div className="brand-subtitle">

@@ -1,0 +1,23 @@
+[33mcommit bce00429f9da70813209c8254be1548ca241a555[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Ahmed <ahmed.othman.oa@gmail.com>
+Date:   Tue Sep 17 15:10:25 2024 +0100
+
+    Added different header logo for different screen sizes as well as fixed email click to take you automatically to default email app
+
+[33mcommit 1e3f5678a6bfd20ef74c7ea6e31de501db1d92e6[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m
+Author: Ahmed <ahmed.othman.oa@gmail.com>
+Date:   Tue Sep 17 11:33:34 2024 +0100
+
+    Fixed JQuerry errors
+
+[33mcommit 0007104a5808d90ed0db6560363ac943299d4ec9[m
+Author: Ahmed <ahmed.othman.oa@gmail.com>
+Date:   Sun Sep 15 03:24:57 2024 +0100
+
+    5 try
+
+[33mcommit c8a9b7ba5165cf3964d4df503e2ec69abb62d299[m
+Author: Ahmed <ahmed.othman.oa@gmail.com>
+Date:   Sun Sep 15 02:43:16 2024 +0100
+
+    First Commit
