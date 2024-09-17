@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./Header";
 import Navbar from "./Navbar";
 import Resume from "./Resume";
+import Mailto from "./Middleware/Mailto";
 
 const Home = () => {
   return (
@@ -43,7 +44,11 @@ const Home = () => {
                 <span>Birthdate</span> : 19/07/1996
               </li>
               <li>
-                <span>Email</span> : ahmed.othman.oa@gmail.com
+                <span>Email</span> :{" "}
+                <Mailto
+                  mailto="mailto:ahmed.othman.oa@gmail.com"
+                  label="ahmed.othman.oa@gmail.com"
+                />
               </li>
               <li>
                 <span>Phone</span> : (+216) 99 987 391
@@ -192,7 +197,10 @@ const Home = () => {
                       <h6 className="d-inline">
                         Email :<br />{" "}
                         <span className="text-muted">
-                          ahmed.othman.oa@gmail.com
+                          <Mailto
+                            mailto="mailto:ahmed.othman.oa@gmail.com"
+                            label="ahmed.othman.oa@gmail.com"
+                          />
                         </span>
                       </h6>
                     </div>
@@ -200,7 +208,7 @@ const Home = () => {
                   <ul className="social-icons pt-4">
                     <li className="social-item">
                       <a
-                        className="social-link text-dark"
+                        className="social-link "
                         href="https://github.com/Othmen-Ahmed"
                       >
                         <i className="ti-github" aria-hidden="true" />

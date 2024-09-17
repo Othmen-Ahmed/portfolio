@@ -330,8 +330,9 @@ const Resume = () => {
                     Assisted in the integration of Advanced Process Control
                     (APC) applications utilizing Model Predictive Control (MPC)
                     technology to stabilize production and maximize
-                    profitability, customized to meet client-specific
-                    requirements.
+                    profitability. Communication with the current DCS(SIemens PCS7) 
+                    was done using OPC DA. Switching logic was configured to grafully 
+                    transition between normal and automatic operations.
                   </p>
                   <figure class="text-center">
                     <img
