@@ -63,17 +63,19 @@ const Resume = () => {
                   <h6 className="title text-danger">2017 - 2021</h6>
                   <p>B.E Mechatronics Engineering</p>
                   <p className="subtitle">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Error corrupti recusandae obcaecati odit repellat ducimus
-                    cum, minus tempora aperiam at.
+                  Graduated valedictorian from ENISo (<span><a href="http://www.eniso.rnu.tn/fr/">École Nationale d'Ingénieurs de Sousse</a></span>) 
+                  with a major in Mechatronics Engineering and a minor in Systems Engineering, 
+                  demonstrating exceptional academic performance and leadership in multidisciplinary 
+                  engineering projects.
                   </p>
                   <hr />
                   <h6 className="title text-danger">2015 - 2017</h6>
                   <p>Diploma in Engineering Prep school</p>
                   <p className="subtitle">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Eos, id officiis quas placeat quia voluptas dolorum rem
-                    animi nostrum quae.aliquid repudiandae saepe!.
+                  Graduated valedictorian from Engineering Prep School, 
+                  showcasing outstanding academic performance and a strong 
+                  foundation in advanced mathematics, physics, and engineering 
+                  principles.
                   </p>
                 </div>
               </div>
