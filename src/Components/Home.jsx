@@ -29,9 +29,18 @@ const Home = () => {
               industrial processes, reducing inefficiencies, and driving
               innovation through automation technologies.
             </p>
+            
+            <hr></hr>
+            
             <button className="btn btn-outline-danger">
               <a href="https://drive.google.com/file/d/11YC1LNvcwS9xACQi5fAPd7gf7ZmwmQwe/view?usp=drive_link">
-                Download My CV
+                English Resume
+              </a>
+            </button>
+            <br></br>
+            <button className="btn btn-outline-danger" style={{ marginTop: "10px" }}>
+              <a href="https://drive.google.com/file/d/11YC1LNvcwS9xACQi5fAPd7gf7ZmwmQwe/view?usp=drive_link">
+                EU Resume
               </a>
             </button>
           </div>
