@@ -39,7 +39,7 @@ const Home = () => {
             </button>
             <br></br>
             <button className="btn btn-outline-danger" style={{ marginTop: "10px" }}>
-              <a href="https://drive.google.com/file/d/11YC1LNvcwS9xACQi5fAPd7gf7ZmwmQwe/view?usp=drive_link">
+              <a href="https://drive.google.com/file/d/1HkVh5TkAEeTB_GUpMeFvzXBH2caJLhdJ/view?usp=drive_link">
                 EU Resume
               </a>
             </button>
