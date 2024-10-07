@@ -30,7 +30,7 @@ const Home = () => {
               innovation through automation technologies.
             </p>
             <button className="btn btn-outline-danger">
-              <a href="https://drive.google.com/file/d/1gSoPRunJENemS6XzNMTv8wZEyboi2nqI/view?usp=sharing">
+              <a href="https://drive.google.com/file/d/11YC1LNvcwS9xACQi5fAPd7gf7ZmwmQwe/view?usp=drive_link">
                 Download My CV
               </a>
             </button>
