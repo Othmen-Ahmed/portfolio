@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
 
@@ -130,7 +131,7 @@ const Navbar = () => {
               <li className="brand-txt scrolled">
                 <h5 className="brand-title">Ahmed OTHMAN</h5>
                 <div className="brand-subtitle">
-                  OT Engineer | Mechatronics Grad
+                  Electrical &amp; Industrial IT Engineer
                 </div>
               </li>
             </ul>
@@ -146,6 +147,12 @@ const Navbar = () => {
                 </button>
               </li>
               
+              <li className="nav-item">
+                <Link to="/simulator" className="btn btn-link nav-link">
+                  Simulator
+                </Link>
+              </li>
+
               <li className="nav-item last-item">
               <button
                   href="#contact"

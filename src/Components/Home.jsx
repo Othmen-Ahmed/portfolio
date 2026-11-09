@@ -3,6 +3,7 @@ import Header from "./Header";
 import Navbar from "./Navbar";
 import Resume from "./Resume";
 import Mailto from "./Middleware/Mailto";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -39,7 +40,7 @@ const Home = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Eng Resume
+              English Resume
             </a>
             <br />
             <a
@@ -49,8 +50,16 @@ const Home = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              FR Resume
+              EU Resume
             </a>
+            <br />
+            <Link
+              to="/simulator"
+              className="btn btn-danger"
+              style={{ marginTop: "10px" }}
+            >
+              Try my kiln operator simulator
+            </Link>
           </div>
 
           <div className="col-lg-4 about-card">
