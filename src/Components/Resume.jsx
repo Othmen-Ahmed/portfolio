@@ -14,15 +14,32 @@ const Resume = () => {
               <div className="card">
                 <div className="card-header">
                   <div className="mt-2">
-                    <h4>Expertise</h4>
+                    <h4>Experience</h4>
                     <span className="line" />
                   </div>
                 </div>
                 <div className="card-body">
-                  <h6 className="title text-danger">09/2021 - Present</h6>
+                  <h6 className="title text-danger">03/2025 - Present</h6>
+                  <p>
+                    Head of Automation &amp; Industrial IT - SINOMA Cement Co Ltd{" "}
+                    <span style={{ fontStyle: "italic" }}>--Tunis</span>{" "}
+                  </p>
+                  <p className="subtitle">
+                    ● Lead the maintenance department: 40 technicians plus
+                    subcontractors.
+                  </p>
+                  <p className="subtitle">
+                    ● Manage a 20 M TND maintenance and CAPEX budget.
+                  </p>
+                  <hr />
+                  <h6 className="title text-danger">02/2022 - 03/2025</h6>
                   <p>
                     Industrial IT Specialist - Votorantim Cimentos{" "}
                     <span style={{ fontStyle: "italic" }}>--Tunisia</span>{" "}
+                  </p>
+                  <p className="subtitle">
+                    ● Interim Electrical Maintenance Manager for one year,
+                    leading a team of 18.
                   </p>
                   <p className="subtitle">
                     ● Led efforts of PCS7 system audit, resolving networking
@@ -60,7 +77,7 @@ const Resume = () => {
                   </div>
                 </div>
                 <div className="card-body">
-                  <h6 className="title text-danger">2017 - 2021</h6>
+                  <h6 className="title text-danger">2017 - 2020</h6>
                   <p>B.E Mechatronics Engineering</p>
                   <p className="subtitle">
                   Graduated valedictorian from ENISo (<span><a href="http://www.eniso.rnu.tn/fr/">École Nationale d'Ingénieurs de Sousse</a></span>) 
@@ -250,7 +267,7 @@ const Resume = () => {
                     />
                   </div>
 
-                  <h6>German: A2</h6>
+                  <h6>German: A1</h6>
                   <div className="progress mb-3">
                     <div
                       className="progress-bar bg-danger"
@@ -278,7 +295,7 @@ const Resume = () => {
                   </div>
                 </div>
                 <div className="col-7 text-left py-3">
-                  <h1 className="text-danger font-weight-bold font40">3</h1>
+                  <h1 className="text-danger font-weight-bold font40">4+</h1>
                   <p className="text-light mb-1">Years Of Experience</p>
                 </div>
               </div>
@@ -305,8 +322,8 @@ const Resume = () => {
                   </div>
                 </div>
                 <div className="col-7 text-left py-3">
-                  <h1 className="text-danger font-weight-bold font40">2k</h1>
-                  <p className="text-light mb-1">Coffee Drinked</p>
+                  <h1 className="text-danger font-weight-bold font40">40</h1>
+                  <p className="text-light mb-1">Technicians Led</p>
                 </div>
               </div>
             </div>

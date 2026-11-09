@@ -17,17 +17,18 @@ const Home = () => {
             <h3 className="font-weight-light">Who am I ?</h3>
             <span className="line mb-5" />
             <h5 className="mb-3">
-              OT Engineer / Mechatronics graduate Located In Tunisia
+              Electrical &amp; Industrial IT Engineer | Maintenance Manager, Tunisia
             </h5>
             <p className="mt-20">
-              A dedicated and results-driven Industrial IT Specialist with a
-              strong foundation in automation and industrial networking.
-              Currently, I’m leveraging my expertise in cement industry, where
-              I’ve led crucial projects like PCS7 system upgrades and audits as
-              well as seamless integration of LIMS and AVEVA PI, improving
-              operational efficiency by 30%. I’m passionate about optimizing
-              industrial processes, reducing inefficiencies, and driving
-              innovation through automation technologies.
+              Mechatronics engineer (valedictorian, ENISo) with a strong
+              background in automation and industrial networking (Siemens PCS7,
+              TIA Portal). I currently head the Automation &amp; Industrial IT
+              department at SINOMA Cement, leading the maintenance team of 40
+              technicians plus subcontractors and managing a 20 M TND
+              maintenance and CAPEX budget. Previously at Votorantim Cimentos,
+              I led PCS7 upgrades and audits, integrated LIMS and AVEVA PI
+              (+30% operational efficiency) and served one year as interim
+              Electrical Maintenance Manager.
             </p>
             
             <hr></hr>
@@ -50,9 +51,6 @@ const Home = () => {
             <span className="line mb-5" />
             <ul className="mt40 info list-unstyled">
               <li>
-                <span>Birthdate</span> : 19/07/1996
-              </li>
-              <li>
                 <span>Email</span> :{" "}
                 <Mailto
                   mailto="mailto:ahmed.othman.oa@gmail.com"
@@ -63,7 +61,7 @@ const Home = () => {
                 <span>Phone</span> : (+216) 99 987 391
               </li>
               <li>
-                <span>Address</span> : 2, Rue de la république, Sousse, Tunisia.
+                <span>Location</span> : Tunisia
               </li>
             </ul>
             <ul className="social-icons pt-3">
@@ -193,7 +191,7 @@ const Home = () => {
                       <h6 className="d-inline">
                         Address :<br />{" "}
                         <span className="text-muted">
-                          2, Rue de la republique, Sousse, Tunisia.
+                          Tunisia
                         </span>
                       </h6>
                     </div>
