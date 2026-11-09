@@ -33,17 +33,24 @@ const Home = () => {
             
             <hr></hr>
             
-            <button className="btn btn-outline-danger">
-              <a href="https://drive.google.com/file/d/11YC1LNvcwS9xACQi5fAPd7gf7ZmwmQwe/view?usp=drive_link">
-                English Resume
-              </a>
-            </button>
-            <br></br>
-            <button className="btn btn-outline-danger" style={{ marginTop: "10px" }}>
-              <a href="https://drive.google.com/file/d/1HkVh5TkAEeTB_GUpMeFvzXBH2caJLhdJ/view?usp=drive_link">
-                EU Resume
-              </a>
-            </button>
+            <a
+              className="btn btn-outline-danger"
+              href="./assets/pdf/Ahmed_OTHMAN_CV_EN.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Eng Resume
+            </a>
+            <br />
+            <a
+              className="btn btn-outline-danger"
+              style={{ marginTop: "10px" }}
+              href="./assets/pdf/Ahmed_OTHMAN_CV_EU.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              FR Resume
+            </a>
           </div>
 
           <div className="col-lg-4 about-card">
