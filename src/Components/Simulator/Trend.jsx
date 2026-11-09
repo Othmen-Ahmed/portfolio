@@ -12,6 +12,7 @@ const Trend = ({ title, history, pens, windowMin = 120, now }) => {
   const xOf = (t) => ((t - tStart) / (tEnd - tStart)) * W;
   const yOf = (v, p) => H - ((Math.min(p.max, Math.max(p.min, v)) - p.min) / (p.max - p.min)) * H;
   const main = pens[0];
+  const hasBand = main.lo != null && main.hi != null;
 
   return (
     <figure className="ks-trend">
@@ -30,13 +31,18 @@ const Trend = ({ title, history, pens, windowMin = 120, now }) => {
         </span>
       </figcaption>
       <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="none" role="img" aria-label={title}>
-        <rect
+        {hasBand && <rect
           x="0"
           width={W}
           y={yOf(main.hi, main)}
           height={Math.max(0, yOf(main.lo, main) - yOf(main.hi, main))}
           className="ks-band"
-        />
+        />}
+        {pts.map((h, i) =>
+          h.apc && i < pts.length - 1 ? (
+            <rect key={`a${h.t}`} x={xOf(h.t)} width={Math.max(0.5, xOf(pts[i + 1].t) - xOf(h.t))} y="0" height={H} className="ks-apcband" />
+          ) : null
+        )}
         {[0.25, 0.5, 0.75].map((f) => (
           <line key={f} x1={W * f} x2={W * f} y1="0" y2={H} className="ks-grid" />
         ))}
@@ -58,7 +64,7 @@ const Trend = ({ title, history, pens, windowMin = 120, now }) => {
         <span>
           {main.min}–{main.max} {main.unit}
         </span>
-        <span>last {windowMin} min</span>
+        <span>last {windowMin} min{pts.some((h) => h.apc) ? ", shaded = APC" : ""}</span>
       </div>
     </figure>
   );
