@@ -353,11 +353,11 @@ const Resume = () => {
                     was done using OPC DA. Switching logic was configured to grafully 
                     transition between normal and automatic operations.
                   </p>
-                  <figure class="text-center">
+                  <figure className="text-center">
                     <img
                       src="./assets/imgs/optimization-with-apc.jpg"
                       alt="MPC Optimization"
-                      class="img-fluid"
+                      className="img-fluid"
                     />
                     <figcaption>MPC Optimization with ABB APC</figcaption>
                   </figure>
@@ -749,11 +749,11 @@ const Resume = () => {
             </div>
           </div> */}
 
-          <p>
-            <span class="material-symbols-outlined">construction</span>
+          <div>
+            <span className="material-symbols-outlined">construction</span>
             <h6>Work in Progress</h6>
-            <span class="material-symbols-outlined">construction</span>
-          </p>
+            <span className="material-symbols-outlined">construction</span>
+          </div>
         </div>
       </section>
       {/* End of portfolio section */}

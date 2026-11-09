@@ -5,7 +5,9 @@ const Faceplate = ({ mv, sp, pv, onChange }) => {
   const [text, setText] = useState(String(sp));
   const dec = mv.step < 1 ? (mv.step < 0.1 ? 2 : 1) : 0;
 
-  useEffect(() => setText(sp.toFixed(dec)), [sp, dec]);
+  useEffect(() => {
+    setText(sp.toFixed(dec));
+  }, [sp, dec]);
 
   const commit = (v) => {
     const n = parseFloat(String(v).replace(",", "."));

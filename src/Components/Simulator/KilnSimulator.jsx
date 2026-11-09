@@ -70,7 +70,9 @@ const KilnSimulator = () => {
   const sim = useRef(createState("steady"));
   const acc = useRef(0);
 
-  useEffect(() => window.scrollTo(0, 0), []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const reset = useCallback((id = scenarioId) => {
     sim.current = createState(id);
