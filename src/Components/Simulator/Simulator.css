@@ -65,6 +65,7 @@
 .ks-root .ks-report-actions .ks-primary { background: var(--ks-value); border-color: var(--ks-value); color: #fff; font-weight: 600; min-width: 112px; }
 .ks-root .ks-controls .ks-primary:disabled { opacity: 0.5; }
 .ks-clock { margin-left: auto; display: grid; grid-template-columns: auto auto; column-gap: 8px; align-items: baseline; }
+.ks-clock-label { grid-column: 1 / -1; font-size: 12px; color: var(--ks-muted); margin-bottom: 2px; }
 .ks-clock-time { font-size: 28px; font-weight: 600; color: var(--ks-value); line-height: 1; }
 .ks-clock-of { font-size: 13px; color: var(--ks-muted); }
 .ks-progress { grid-column: 1 / -1; height: 4px; background: var(--ks-edge); margin-top: 6px; }
@@ -206,3 +207,14 @@
   .ks-faces h2, .ks-hint { grid-column: 1 / -1; }
   .ks-face:first-of-type { border-top: 1px solid var(--ks-edge); padding-top: 8px; }
 }
+
+/* Private visitor stats page */
+.ks-stats-login { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 24px; max-width: 520px; }
+.ks-stats-login label { width: 100%; font-weight: 600; }
+.ks-stats-login input { height: 34px; flex: 1; min-width: 200px; border: 1px solid var(--ks-equip); border-radius: 3px; padding: 0 10px; background: var(--ks-entry); }
+.ks-stats-login .ks-primary { height: 34px; padding: 0 14px; border-radius: 3px; border: 1px solid var(--ks-value); background: var(--ks-value); color: #fff; font-weight: 600; cursor: pointer; }
+.ks-stats-error { width: 100%; color: var(--ks-alarm); margin: 0; }
+.ks-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 16px; align-items: start; }
+.ks-stats-big { font-size: 48px; font-weight: 700; color: var(--ks-value); line-height: 1; margin: 4px 0 6px; }
+.ks-stats-check { display: flex; gap: 8px; align-items: center; font-size: 14px; margin-bottom: 12px; }
+.ks-stats-logout { height: 32px; padding: 0 12px; border: 1px solid var(--ks-edge); border-radius: 3px; background: #f3f4f1; cursor: pointer; }

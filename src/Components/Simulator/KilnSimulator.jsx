@@ -15,10 +15,12 @@ const DURATIONS = [
 ];
 const SPEEDS = [10, 30, 60, 120];
 
-const clock = (t) => {
+const pad = (n) => String(n).padStart(2, "0");
+const clock = (t, seconds = false) => {
   const h = Math.floor(t / 3600);
   const m = Math.floor((t % 3600) / 60);
-  return `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}`;
+  const sec = Math.floor(t % 60);
+  return seconds ? `${pad(h)}:${pad(m)}:${pad(sec)}` : `${pad(h)}:${pad(m)}`;
 };
 
 const TRENDS = [
@@ -69,6 +71,7 @@ const KilnSimulator = () => {
   const [, setFrame] = useState(0);
   const sim = useRef(createState("steady"));
   const acc = useRef(0);
+  const lastTick = useRef(0);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -85,8 +88,14 @@ const KilnSimulator = () => {
   // Simulation clock
   useEffect(() => {
     if (!running) return undefined;
+    lastTick.current = performance.now();
     const id = setInterval(() => {
-      acc.current += speed * 0.1; // plant seconds per 100 ms of real time
+      // Advance by the real time that actually passed, so the plant clock
+      // follows the chosen speed even when the browser is slow to redraw.
+      const now = performance.now();
+      const realSec = Math.min(2, (now - lastTick.current) / 1000);
+      lastTick.current = now;
+      acc.current += speed * realSec;
       const s = sim.current;
       while (acc.current >= DT && s.t < duration) {
         step(s);
@@ -163,7 +172,8 @@ const KilnSimulator = () => {
         </div>
 
         <div className="ks-clock" aria-live="off">
-          <span className="ks-clock-time">{clock(s.t)}</span>
+          <span className="ks-clock-label">Plant time, {speed}× real time</span>
+          <span className="ks-clock-time">{clock(Math.min(duration, s.t + Math.min(acc.current, DT - 1)), true)}</span>
           <span className="ks-clock-of">of {clock(duration)}</span>
           <span className="ks-progress"><span style={{ width: `${(100 * s.t) / duration}%` }} /></span>
         </div>
