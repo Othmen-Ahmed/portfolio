@@ -12,24 +12,11 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
-// smooth scroll
-$(document).ready(function(){
-    $(".navbar .nav-link").on('click', function(event) {
-
-        if (this.hash !== "") {
-
-            event.preventDefault();
-
-            var hash = this.hash;
-
-            $('html, body').animate({
-                scrollTop: $(hash).offset().top
-            }, 700, function(){
-                window.location.hash = hash;
-            });
-        } 
-    });
-});
+// smooth scroll: removed. The React Navbar scrolls to sections itself, and this
+// jQuery handler hijacked the "Simulator" router link (href="#/simulator"):
+// it called preventDefault() so React Router never navigated, then crashed on
+// $("#/simulator"). It only bound to the navbar present at page load, which is
+// why the first click failed and later clicks (after a remount) worked.
 
 // protfolio filters
 $(window).on("load", function() {
