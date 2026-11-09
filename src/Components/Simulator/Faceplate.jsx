@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
-import { DRIVES, PVS, NOM, permissives, canStart, startDrive, stopDrive, resetTrip, TRIP_TEXT } from "../../sim/plant";
+import { DRIVES, PVS, NOM, permissives, canStart, startDrive, stopDrive, resetTrip, turnKilnAux, TRIP_TEXT } from "../../sim/plant";
 
 // Which process alarms belong to which drive's faceplate
 const RELATED = {
-  fan: ["o2", "o2Ph", "co", "cyc1T"],
-  feed: ["calcDeg", "freeLimeLab"],
-  kiln: ["torque", "bzt"],
-  fuelKiln: ["bzt", "nox", "o2", "co"],
+  fan: ["o2", "o2Ph", "co", "cyc1T", "coolRate"],
+  feed: ["calcDeg", "freeLimeLab", "cyc1T"],
+  kiln: ["torque", "bzt", "kilnFlame", "kilnTurn"],
+  fuelKiln: ["bzt", "nox", "o2", "co", "kilnFlame"],
   fuelCalc: ["calcT", "o2Ph", "co"],
   grate: ["ugp", "sat"],
 };
@@ -142,6 +142,20 @@ const Faceplate = ({ p, k, onClose, onChange }) => {
         </div>
       )}
 
+      {k === "kiln" && !d.running && (
+        <section className="fp-sec fp-aux">
+          <h3>Auxiliary drive (barring)</h3>
+          <p className="fp-note">
+            A hot kiln that stands still bows under its own weight. Turn it one third of a turn as soon as possible, then about every 30 minutes
+            while it is hot.
+          </p>
+          <div className="fp-row">
+            <button type="button" onClick={() => { turnKilnAux(p); onChange(); }}>Turn kiln 1/3 turn</button>
+            <span className="fp-unit">last turn {Math.floor((p.t - p.kilnAux.last) / 60)} min ago, {p.kilnAux.turns} turns</span>
+          </div>
+        </section>
+      )}
+
       <section className="fp-sec">
         <h3>Start permissives</h3>
         <ul className="fp-ilk">
@@ -164,7 +178,8 @@ const Faceplate = ({ p, k, onClose, onChange }) => {
           <ul className="fp-alarms">
             {alarms.map((a) => (
               <li key={a.key} className={`fp-a${a.prio}`}>
-                <b>{a.lvl}</b> {a.label}: {(p.x[a.key] * (a.key === "calcDeg" ? 100 : 1)).toFixed(PVS[a.key].dec)} {PVS[a.key].unit}
+                <b>{a.lvl}</b>{" "}
+                {a.text ? a.text : `${a.label}: ${(p.x[a.key] * (a.key === "calcDeg" ? 100 : 1)).toFixed(PVS[a.key].dec)} ${PVS[a.key].unit}`}
               </li>
             ))}
           </ul>

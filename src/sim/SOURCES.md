@@ -45,6 +45,37 @@ Generic 5,000 t/d dry-process line: 5-stage preheater, calciner with tertiary ai
 
 Stadler, K.S., Poland, J., Gallestey, E. (2011). Model predictive control of a rotary cement kiln. Control Engineering Practice 19, 1–9. Table 1, 10-day periods at Holcim Siggenthal: burning zone SD 6.38 → 2.94 °C, within ±0.5 % 86.7 → 97.7 %, O₂ SD 0.93 → 0.39 %, specific energy SD 439.9 → 76.1 kJ/kg, feed SD 11.88 → 0.36 % of maximum.
 
+## Equipment stops and trips (stop recorder)
+
+Every stop or trip is recorded for 2 plant hours (10 min before, 120 min after) with a before / +5 / +15 / +30 / +60 min table.
+Each stop has its own physics; the numbers below are the model's response from full load with nothing else touched.
+
+| Stop | Mechanism in the model | Typical response |
+|---|---|---|
+| ID fan | Draught lost: coal and feed trip. Analysers read stagnant air. Gas-path and lining temperatures cool slowly | Both O₂ readings to about 21 % within 5 min, CO and NOx to zero. Burning zone −150 °C in the first hour, then 15–25 °C/h. Cyclone 1 outlet −100 °C in the first hour |
+| Kiln feed | Meal stops absorbing heat. Calciner coal trips (interlock). Kiln empties after the 15 min residence delay | Cyclone 1 outlet +60 °C in 5 min (alarm), calciner −300 °C, preheater O₂ to about 14 %, burning zone +150–200 °C within the hour if the burner stays on |
+| Kiln main drive | Material stops moving (delay lines freeze), flame heats a stationary bed (builds up over about 15 min), clinker stops leaving the kiln | NOx jump, burning zone up, secondary air collapses, torque to zero. Hot kiln must be barred: alarm at 30 min, high-high at 60 min |
+| Main burner coal | Flame-out: heat supply to the kiln falls to zero while cold meal keeps arriving | Kiln inlet O₂ to about 20 %, NOx collapses first, burning zone −180 °C in 15 min, kiln flush after about 20 min |
+| Calciner coal | Calcination drops from 93 to about 63 %, so the kiln receives under-calcined meal after 15 min | Calciner −190 °C in 5 min, preheater exit O₂ to 13–14 %, burning zone −60 °C in an hour |
+| Cooler grate | Bed height integrates clinker inflow minus grate discharge (20 min to fill). A deep bed first recovers more heat, then air channels | Chamber 2 pressure alarm in about 7 min. Secondary air first rises, then falls below 950 °C at 30 min and about 550 °C at 1 h. Flush at about 2 h |
+
+Supporting practice (plant-practice guidance, not peer reviewed):
+
+- A stationary hot kiln must be turned with the auxiliary drive within minutes (engage within 5 min; a stationary kiln at 1,400 °C warps within about 15 min) and then about every 30 minutes during cooling.
+- Safe lining cool-down rate is about 20–30 °C/h, which is why the model raises an alarm above 40 °C/h and why a tripped line should be restarted with the ID fan low.
+- A sudden feed drop causes a calciner exhaust temperature spike and a rise in preheater exit gas temperature.
+- Kiln reaction time to fuel changes is about 30 min (Peray); plant confirmation of about 35 min (A. Othman).
+- Sources: Oxmaint "Kiln Shutdown Checklist", "Cement Plant Emergency Maintenance Response Protocol" and iFactory "Kiln Shutdown Checklist: Pre-Stop, Cooldown & Restart Procedures" (2026); Peray, K.E., Kiln Operation; Alsop, Cement Plant Operations Handbook.
+
+Modelling choices specific to stops:
+
+- Coast-down rates: ID fan 40 %/min, coal feeders and feed about 1 min, kiln drive 1.6 rpm/min, grate 8 str/min.
+- Cooling mode (no fuel and no meal, or no draught): calciner outlet, cyclone 1 outlet, kiln inlet gas and secondary air decay toward 40 °C with time constants of 2–2.5 h, 1 h, 2.5 h and 2 h at full draught (about 2.5 times longer with the fan stopped).
+- Burning zone cooling (flame out with an empty or stationary kiln): the reading first drops about 140 °C in 25 min to the lining level, then the lining cools with τ = 24 h at full draught up to 94 h with no draught.
+- Flame out with feed still running uses the heat-starvation branch: below 70 % of the heat demand the burning zone falls about 900 °C per unit of heat ratio, giving the 15–20 min flush.
+- Alarms follow ISA-18.2 state-based suppression: analyser and gas-path alarms are suppressed while the ID fan is stopped, and kiln torque alarms while the kiln is stopped. Alarms have a 2 % deadband.
+- Coal ignition permissive: burning zone above 600 °C (below that the plant would use its oil light-up burner, not simulated).
+
 ## References
 
 - Stadler, Poland, Gallestey (2011), Control Engineering Practice 19(1), 1–9.

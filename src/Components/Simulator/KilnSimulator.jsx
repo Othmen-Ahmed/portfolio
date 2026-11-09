@@ -7,6 +7,7 @@ import Mimic from "./Mimic";
 import Trend from "./Trend";
 import Faceplate from "./Faceplate";
 import ApcConsole from "./ApcConsole";
+import StopImpact from "./StopImpact";
 import "./Simulator.css";
 
 const DURATIONS = [
@@ -136,7 +137,11 @@ const KilnSimulator = () => {
           <label>
             Scenario
             <select value={scenarioId} disabled={running} onChange={(e) => { setScenarioId(e.target.value); reset(e.target.value); }}>
-              {SCENARIOS.map((s) => <option key={s.id} value={s.id}>{s.name}</option>)}
+              {["Process disturbances", "Equipment trips"].map((g) => (
+                <optgroup key={g} label={g}>
+                  {SCENARIOS.filter((s) => s.group === g).map((s) => <option key={s.id} value={s.id}>{s.name}</option>)}
+                </optgroup>
+              ))}
             </select>
           </label>
           <label>
@@ -172,7 +177,8 @@ const KilnSimulator = () => {
         {top ? (
           <>
             <span className="hm-b-txt">
-              <b>{top.lvl}</b> {top.label}: {(p.x[top.key] * (top.key === "calcDeg" ? 100 : 1)).toFixed(PVS[top.key].dec)} {PVS[top.key].unit}
+              <b>{top.lvl}</b>{" "}
+              {top.text ? top.text : `${top.label}: ${(p.x[top.key] * (top.key === "calcDeg" ? 100 : 1)).toFixed(PVS[top.key].dec)} ${PVS[top.key].unit}`}
               {alarmsList.length > 1 && <span className="hm-b-more"> and {alarmsList.length - 1} more</span>}
             </span>
             <button type="button" disabled={!unacked.length} onClick={() => { ackAlarms(p); refresh(); }}>
@@ -193,11 +199,14 @@ const KilnSimulator = () => {
       </section>
 
       <div className="hm-work">
-        <section className="ks-trends" aria-label="Trends">
-          {TRENDS.map((tr) => (
-            <Trend key={tr.title} title={tr.title} pens={tr.pens} history={p.history} now={p.t} windowMin={Math.min(120, duration / 60)} />
-          ))}
-        </section>
+        <div className="hm-main">
+          <section className="ks-trends" aria-label="Trends">
+            {TRENDS.map((tr) => (
+              <Trend key={tr.title} title={tr.title} pens={tr.pens} history={p.history} now={p.t} windowMin={Math.min(120, duration / 60)} />
+            ))}
+          </section>
+          <StopImpact p={p} />
+        </div>
 
         <aside className="ks-side">
           <section className="ks-score" aria-label="Shift performance">
@@ -251,6 +260,8 @@ const KilnSimulator = () => {
               <li>Under APC the feed climbs until something limits it, usually the ID fan. That is where the production gain comes from.</li>
               <li>Free lime is sampled hourly and reported 15 minutes later. Don't chase it.</li>
               <li>The kiln drive follows the feed in Auto. The grate keeps chamber 2 pressure at its setpoint in Auto.</li>
+              <li>After any stop, open the stop recorder: it shows how far the temperatures and the O₂ moved after 5, 15, 30 and 60 minutes.</li>
+              <li>A stopped hot kiln must be turned with the auxiliary drive, then about every 30 minutes. Keep lining cooling below 40 °C/h by holding the ID fan low.</li>
             </ul>
           </details>
         </aside>
@@ -290,6 +301,8 @@ const KilnSimulator = () => {
                 <tr><th>Average specific heat</th><td>{all.heat.mean.toFixed(0)} kcal/kg</td></tr>
                 <tr><th>Off-spec clinker (free lime above 2.5 %)</th><td>{all.offSpecPct.toFixed(1)} %</td></tr>
                 <tr><th>Minutes under APC</th><td>{p.stats.APC.n} of {all.minutes}</td></tr>
+                <tr><th>Kiln flushes / overheating events / CO trips</th><td>{p.counts.flush} / {p.counts.overheat} / {p.counts.coTrips}</td></tr>
+                <tr><th>Drives stopped or tripped during the run</th><td>{p.stopRecs.length}</td></tr>
               </tbody>
             </table>
             <p className="ac-note">Open the APC console, Results tab, to compare your manual minutes with the APC minutes and with published plant data.</p>
