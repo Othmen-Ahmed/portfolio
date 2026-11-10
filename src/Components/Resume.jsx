@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import projects from "../data/projects";
 
 const Resume = () => {
   return (
@@ -22,7 +23,7 @@ const Resume = () => {
                 <div className="card-body">
                   <h6 className="title text-danger">03/2025 - Present</h6>
                   <p>
-                    Maintenance Manager - SINOMA Cement Co Ltd{" "}
+                    Maintenance Manager - SINOMA Cement Co., Ltd{" "}
                     <span style={{ fontStyle: "italic" }}>--Tunis</span>{" "}
                   </p>
                   <p className="subtitle">
@@ -58,8 +59,8 @@ production and quality.
                   <hr />
                   <h6 className="title text-danger">02/2022 - 03/2025</h6>
                   <p>
-                    Industrial IT Specialist - Votorantim Cimentos{" "}
-                    <span style={{ fontStyle: "italic" }}>-Tunisia</span>{" "}
+                    Industrial Automation Engineer - Votorantim Cimentos{" "}
+                    <span style={{ fontStyle: "italic" }}>--Tunis</span>{" "}
                   </p>
                   <p className="subtitle">
                     ● Stepped in as Electrical Maintenance Manager at very short notice, leading a team of 18 and ensuring continuity
@@ -67,7 +68,7 @@ of maintenance operations for one year.
                   </p>
                   <p className="subtitle">
                     ● Maintained and continuously improved the plant process control system (PCS7, 14 S7-400 stations, 60 control
-cabinets);monitored electrical energy and ensured regulatory compliance.
+cabinets); monitored electrical energy and ensured regulatory compliance.
                   </p>
                   <p className="subtitle">
                     ● Led full PCS7 system audits, identifying reliability improvements.
@@ -94,23 +95,35 @@ by 5% (1.2M TND).
                   </div>
                 </div>
                 <div className="card-body">
-                  <h6 className="title text-danger">2017 - 2020</h6>
-                  <p>B.E Mechatronics Engineering</p>
+                  <h6 className="title text-danger">09/2017 - 09/2021</h6>
+                  <p>Engineering Degree (Diplôme d’Ingénieur) in Mechatronics</p>
                   <p className="subtitle">
-                  Graduated valedictorian from ENISo (<span><a href="http://www.eniso.rnu.tn/fr/">École Nationale d'Ingénieurs de Sousse</a></span>) 
-                  with a major in Mechatronics Engineering and a minor in Systems Engineering, 
-                  demonstrating exceptional academic performance and leadership in multidisciplinary 
-                  engineering projects.
+                  Engineering degree in Mechatronics from ENISO (<span><a href="http://www.eniso.rnu.tn/fr/">
+École Nationale d'Ingénieurs de Sousse</a></span>),
+                  with a strong foundation in mechanical, electrical and control
+                  engineering applied to multidisciplinary industrial projects.
                   </p>
+                </div>
+              </div>
+
+              {/* Certifications */}
+              <div className="card">
+                <div className="card-header">
+                  <div className="pull-left">
+                    <h4 className="mt-2">Certifications</h4>
+                    <span className="line" />
+                  </div>
+                </div>
+                <div className="card-body pb-2">
+                  <h6>PMP &reg; - Project Management Professional</h6>
                   <hr />
-                  <h6 className="title text-danger">2015 - 2017</h6>
-                  <p>Diploma in Engineering Prep school</p>
-                  <p className="subtitle">
-                  Graduated valedictorian from Engineering Prep School, 
-                  showcasing outstanding academic performance and a strong 
-                  foundation in advanced mathematics, physics, and engineering 
-                  principles.
-                  </p>
+                  <h6>Cisco Certified Network Associate (CCNA)</h6>
+                  <hr />
+                  <h6>ABB Ability&trade; Expert Optimizer</h6>
+                  <hr />
+                  <h6>React &amp; Node.js</h6>
+                  <hr />
+                  <h6>TOEIC (940)</h6>
                 </div>
               </div>
             </div>
@@ -124,115 +137,116 @@ by 5% (1.2M TND).
                 </div>
 
                 <div className="card-body pb-2">
-                  <h6>PCS7</h6>
-                  <div className="progress mb-3">
-                    <div
-                      className="progress-bar bg-danger"
-                      role="progressbar"
-                      style={{ width: "97%" }}
-                      aria-valuenow={25}
-                      aria-valuemin={0}
-                      aria-valuemax={100}
-                    />
-                  </div>
-                  <h6>OT Networking: Profibus/Profinet</h6>
-                  <div className="progress mb-3">
-                    <div
-                      className="progress-bar bg-danger"
-                      role="progressbar"
-                      style={{ width: "97%" }}
-                      aria-valuenow={25}
-                      aria-valuemin={0}
-                      aria-valuemax={100}
-                    />
-                  </div>
-                  <h6>TIA PORTAL V17</h6>
+                  <h6>Maintenance Strategy &amp; Planning</h6>
                   <div className="progress mb-3">
                     <div
                       className="progress-bar bg-danger"
                       role="progressbar"
                       style={{ width: "95%" }}
-                      aria-valuenow={25}
+                      aria-valuenow={95}
                       aria-valuemin={0}
                       aria-valuemax={100}
                     />
                   </div>
-
-                  <h6>WinCC Advanced: HMI Design</h6>
+                  <h6>Failure Analysis: RCA, 8D, PDCA, FMEA</h6>
+                  <div className="progress mb-3">
+                    <div
+                      className="progress-bar bg-danger"
+                      role="progressbar"
+                      style={{ width: "95%" }}
+                      aria-valuenow={95}
+                      aria-valuemin={0}
+                      aria-valuemax={100}
+                    />
+                  </div>
+                  <h6>Budgeting &amp; Cost Control (CAPEX/OPEX)</h6>
                   <div className="progress mb-3">
                     <div
                       className="progress-bar bg-danger"
                       role="progressbar"
                       style={{ width: "90%" }}
-                      aria-valuenow={25}
+                      aria-valuenow={90}
                       aria-valuemin={0}
                       aria-valuemax={100}
                     />
                   </div>
 
-                  <h6>Ignition</h6>
+                  <h6>HV/MV/LV Distribution &amp; Protection Relays</h6>
+                  <div className="progress mb-3">
+                    <div
+                      className="progress-bar bg-danger"
+                      role="progressbar"
+                      style={{ width: "90%" }}
+                      aria-valuenow={90}
+                      aria-valuemin={0}
+                      aria-valuemax={100}
+                    />
+                  </div>
+
+                  <h6>PCS7 V9: CFC, SFC</h6>
+                  <div className="progress mb-3">
+                    <div
+                      className="progress-bar bg-danger"
+                      role="progressbar"
+                      style={{ width: "95%" }}
+                      aria-valuenow={95}
+                      aria-valuemin={0}
+                      aria-valuemax={100}
+                    />
+                  </div>
+                  <h6>TIA Portal V20 &amp; STEP 7</h6>
+                  <div className="progress mb-3">
+                    <div
+                      className="progress-bar bg-danger"
+                      role="progressbar"
+                      style={{ width: "95%" }}
+                      aria-valuenow={95}
+                      aria-valuemin={0}
+                      aria-valuemax={100}
+                    />
+                  </div>
+                  <h6>WinCC Advanced V6: HMI Design</h6>
+                  <div className="progress mb-3">
+                    <div
+                      className="progress-bar bg-danger"
+                      role="progressbar"
+                      style={{ width: "90%" }}
+                      aria-valuenow={90}
+                      aria-valuemin={0}
+                      aria-valuemax={100}
+                    />
+                  </div>
+                  <h6>Industrial Networks: Profibus, Profinet, PRONETA</h6>
+                  <div className="progress mb-3">
+                    <div
+                      className="progress-bar bg-danger"
+                      role="progressbar"
+                      style={{ width: "92%" }}
+                      aria-valuenow={92}
+                      aria-valuemin={0}
+                      aria-valuemax={100}
+                    />
+                  </div>
+
+                  <h6>OPC DA &amp; OPC UA</h6>
+                  <div className="progress mb-3">
+                    <div
+                      className="progress-bar bg-danger"
+                      role="progressbar"
+                      style={{ width: "85%" }}
+                      aria-valuenow={85}
+                      aria-valuemin={0}
+                      aria-valuemax={100}
+                    />
+                  </div>
+
+                  <h6>React &amp; Node.js</h6>
                   <div className="progress mb-3">
                     <div
                       className="progress-bar bg-danger"
                       role="progressbar"
                       style={{ width: "70%" }}
-                      aria-valuenow={25}
-                      aria-valuemin={0}
-                      aria-valuemax={100}
-                    />
-                  </div>
-                  <h6>SOLIDWORKS</h6>
-                  <div className="progress mb-3">
-                    <div
-                      className="progress-bar bg-danger"
-                      role="progressbar"
-                      style={{ width: "65%" }}
-                      aria-valuenow={75}
-                      aria-valuemin={0}
-                      aria-valuemax={100}
-                    />
-                  </div>
-                  <h6>HTML5 &amp; CSS</h6>
-                  <div className="progress mb-3">
-                    <div
-                      className="progress-bar bg-danger"
-                      role="progressbar"
-                      style={{ width: "50%" }}
-                      aria-valuenow={25}
-                      aria-valuemin={0}
-                      aria-valuemax={100}
-                    />
-                  </div>
-                  <h6>JavaScript &amp; NODE.JS</h6>
-                  <div className="progress mb-3">
-                    <div
-                      className="progress-bar bg-danger"
-                      role="progressbar"
-                      style={{ width: "50%" }}
-                      aria-valuenow={25}
-                      aria-valuemin={0}
-                      aria-valuemax={100}
-                    />
-                  </div>
-
-                  <h6>DataBase Managment: SQL, MongoDB</h6>
-                  <div className="progress mb-3">
-                    <div
-                      className="progress-bar bg-danger"
-                      role="progressbar"
-                      style={{ width: "50%" }}
-                      aria-valuenow={75}
-                      aria-valuemin={0}
-                      aria-valuemax={100}
-                    />
-                  </div>
-                  <h6>Python</h6>
-                  <div className="progress mb-3">
-                    <div
-                      className="progress-bar bg-danger"
-                      role="progressbar"
-                      style={{ width: "50%" }}
-                      aria-valuenow={75}
+                      aria-valuenow={70}
                       aria-valuemin={0}
                       aria-valuemax={100}
                     />
@@ -312,7 +326,7 @@ by 5% (1.2M TND).
                   </div>
                 </div>
                 <div className="col-7 text-left py-3">
-                  <h1 className="text-danger font-weight-bold font40">4+</h1>
+                  <h1 className="text-danger font-weight-bold font40">5+</h1>
                   <p className="text-light mb-1">Years Of Experience</p>
                 </div>
               </div>
@@ -325,8 +339,8 @@ by 5% (1.2M TND).
                   </div>
                 </div>
                 <div className="col-7 text-left py-3">
-                  <h1 className="text-danger font-weight-bold font40">5+</h1>
-                  <p className="text-light mb-1">Project Finished</p>
+                  <h1 className="text-danger font-weight-bold font40">7+</h1>
+                  <p className="text-light mb-1">Projects Delivered</p>
                 </div>
               </div>
             </div>
@@ -353,437 +367,47 @@ by 5% (1.2M TND).
             <span className="text-danger">Projects</span> Highlights
           </h2>
           <div className="row">
-            <div className="col-md-4 col-sm-6">
-              <div className="card mb-5">
-                <div className="card-header has-icon">
-                  <i className="ti-vector text-danger" aria-hidden="true" />
-                </div>
-                <div className="card-body px-4 py-3">
-                  <h5 className="mb-3 card-title text-dark">
-                    ABB Ability™ Expert Optimizer for mining
-                  </h5>
-                  <p className="subtitle">
-                    Assisted in the integration of Advanced Process Control
-                    (APC) applications utilizing Model Predictive Control (MPC)
-                    technology to stabilize production and maximize
-                    profitability. Communication with the current DCS(SIemens PCS7) 
-                    was done using OPC DA. Switching logic was configured to grafully 
-                    transition between normal and automatic operations.
-                    
-                  </p>
-                  
-                  <figure className="text-center">
-                    <img
-                      src="./assets/imgs/optimization-with-apc.jpg"
-                      alt="MPC Optimization"
-                      className="img-fluid"
-                    />
-                    <figcaption>MPC Optimization with ABB APC</figcaption>
-                  </figure>
-                  <Link
-                    to="/simulator"
-                    className="btn btn-danger"
-                    style={{ marginTop: "10px" }}
-                  >
-                    Try my kiln operator simulator
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-4 col-sm-6">
-              <div className="card mb-5">
-                <div className="card-header has-icon">
-                  <i className="ti-write text-danger" aria-hidden="true" />
-                </div>
-                <div className="card-body px-4 py-3">
-                  <h5 className="mb-3 card-title text-dark">
-                    Laboratory Information Management System (LIMS) for cement
-                    manufacturing
-                  </h5>
-                  <p className="subtitle">
-                    Implemented and optimized LIMS (Laboratory Information
-                    Management Systems) to enhance cement quality control by
-                    tracking raw materials, fuels, and final products, ensuring
-                    compliance with ISO 14000 and 17025 standards. Improved
-                    accessibility and transparency of data for management and
-                    plant personnel through ABB Ability™ Knowledge Manager,
-                    streamlining workflow and reducing training efforts.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-4 col-sm-6">
-              <div className="card mb-5">
-                <div className="card-header has-icon">
-                  <i className="ti-package text-danger" aria-hidden="true" />
-                </div>
-                <div className="card-body px-4 py-3">
-                  <h5 className="mb-3 card-title text-dark">
-                    LoTo App (Work In Progress)
-                  </h5>
-                  <p className="subtitle">
-                    Developing a Lockout/Tagout (LoTo) application using React
-                    JS, MongoDB, and OPC DA to streamline equipment isolation
-                    procedures, ensuring enhanced safety and compliance.
-                    Integrating real-time data handling with OPC DA for
-                    effective monitoring and control of equipment statuses.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-4 col-sm-6">
-              <div className="card mb-5">
-                <div className="card-header has-icon">
-                  <i className="ti-map-alt text-danger" aria-hidden="true" />
-                </div>
-                <div className="card-body px-4 py-3">
-                  <h5 className="mb-3 card-title text-dark">
-                    Lime Stone Crusher Commisioning
-                  </h5>
-                  <p className="subtitle">
-                    Commissioned limestone crushers, applying logic controls in
-                    compliance with IEC standards for mining, ensuring
-                    operational safety, process optimization, and equipment
-                    efficiency through systematic testing and automation
-                    integration.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-4 col-sm-6">
-              <div className="card mb-5">
-                <div className="card-header has-icon">
-                  <i className="ti-bar-chart text-danger" aria-hidden="true" />
-                </div>
-                <div className="card-body px-4 py-3">
-                  <h5 className="mb-3 card-title text-dark">
-                    Bulk Loading Point Commisioning
-                  </h5>
-                  <p className="subtitle">
-                    Implemented a new bulk loading point using Siemens PCS7 :
-                    Developed and integrated new HMI and the required logic
-                    according to the process and mechanical specification.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-4 col-sm-6">
-              <div className="card mb-5">
-                <div className="card-header has-icon">
-                  <i className="ti-support text-danger" aria-hidden="true" />
-                </div>
-                <div className="card-body px-4 py-3">
-                  <h5 className="mb-3 card-title text-dark">
-                    Unitherm Berner Commisioning
-                  </h5>
-                  <p className="subtitle">
-                    Commissioned UniTherm burners in accordance with supplier
-                    specifications, ensuring optimal performance, safety
-                    compliance, and efficiency through precise calibration and
-                    system testing.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+            {projects.map((project) => (
+              <div className="col-md-4 col-sm-6" key={project.slug}>
+                <div className="card mb-5">
+                  <div className="card-header has-icon">
+                    <i className={`${project.icon} text-danger`} aria-hidden="true" />
+                  </div>
+                  <div className="card-body px-4 py-3">
+                    <h5 className="mb-3 card-title text-dark">
+                      {project.title}
+                    </h5>
+                    {project.date && (
+                      <p className="subtitle text-danger">
+                        {project.role} &middot; {project.date}
+                      </p>
+                    )}
+                    <p className="subtitle">{project.summary}</p>
 
-      {/* Portfolio Section */}
-      {/* <section className="section bg-custom-gray" id="portfolio">
-        <div className="container">
-          <h1 className="mb-5">
-            <span className="text-danger">My</span> Projects
-          </h1>
-          {/* <div className="portfolio">
-            <div className="filters">
-              <a href="#" data-filter=".new" className="active">
-                New
-              </a>
-              <a href="#" data-filter=".advertising">
-                OT Engineering
-              </a>
-              <a href="#" data-filter=".branding">
-                OT Architecture
-              </a>
-              <a href="#" data-filter=".web">
-                Product Design
-              </a>
-            </div>
-            <div className="portfolio-container">
-              <div className="col-md-6 col-lg-4 web new">
-                <div className="portfolio-item">
-                  <img
-                    src="assets/imgs/web-1.jpg"
-                    className="img-fluid"
-                    alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates"
-                  />
-                  <div className="content-holder">
-                    <a className="img-popup" href="assets/imgs/web-1.jpg" />
-                    <div className="text-holder">
-                      <h6 className="title">WEB</h6>
-                      <p className="subtitle">
-                        Expedita corporis doloremque velit in totam!
-                      </p>
-                    </div>
+                    {project.images.length > 0 && (
+                      <figure className="text-center">
+                        <img
+                          src={project.images[0].src}
+                          alt={project.images[0].caption}
+                          className="img-fluid"
+                        />
+                        <figcaption>{project.images[0].caption}</figcaption>
+                      </figure>
+                    )}
+                    <Link
+                      to={`/projects/${project.slug}`}
+                      className="btn btn-outline-danger"
+                      style={{ marginTop: "10px" }}
+                    >
+                      Read more
+                    </Link>
                   </div>
                 </div>
               </div>
-              <div className="col-md-6 col-lg-4 web new">
-                <div className="portfolio-item">
-                  <img
-                    src="assets/imgs/web-2.jpg"
-                    className="img-fluid"
-                    alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates"
-                  />
-                  <div className="content-holder">
-                    <a className="img-popup" href="assets/imgs/web-2.jpg" />
-                    <div className="text-holder">
-                      <h6 className="title">WEB</h6>
-                      <p className="subtitle">
-                        Expedita corporis doloremque velit in totam!
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-6 col-lg-4 advertising new">
-                <div className="portfolio-item">
-                  <img
-                    src="assets/imgs/advertising-2.jpg"
-                    className="img-fluid"
-                    alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates"
-                  />
-                  <div className="content-holder">
-                    <a
-                      className="img-popup"
-                      href="assets/imgs/advertising-2.jpg"
-                    />
-                    <div className="text-holder">
-                      <h6 className="title">ADVERSTISING</h6>
-                      <p className="subtitle">
-                        Expedita corporis doloremque velit in totam!
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-6 col-lg-4 web">
-                <div className="portfolio-item">
-                  <img
-                    src="assets/imgs/web-4.jpg"
-                    className="img-fluid"
-                    alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates"
-                  />
-                  <div className="content-holder">
-                    <a className="img-popup" href="assets/imgs/web-4.jpg" />
-                    <div className="text-holder">
-                      <h6 className="title">WEB</h6>
-                      <p className="subtitle">
-                        Expedita corporis doloremque velit in totam!
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-6 col-lg-4 advertising">
-                <div className="portfolio-item">
-                  <img
-                    src="assets/imgs/advertising-1.jpg"
-                    className="img-fluid"
-                    alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates"
-                  />
-                  <div className="content-holder">
-                    <a
-                      className="img-popup"
-                      href="assets/imgs/advertising-1.jpg"
-                    />
-                    <div className="text-holder">
-                      <h6 className="title">ADVERSITING</h6>
-                      <p className="subtitle">
-                        Expedita corporis doloremque velit in totam!
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-6 col-lg-4 web new">
-                <div className="portfolio-item">
-                  <img
-                    src="assets/imgs/web-3.jpg"
-                    className="img-fluid"
-                    alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates"
-                  />
-                  <div className="content-holder">
-                    <a className="img-popup" href="assets/imgs/web-3.jpg" />
-                    <div className="text-holder">
-                      <h6 className="title">WEB</h6>
-                      <p className="subtitle">
-                        Expedita corporis doloremque velit in totam!
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-6 col-lg-4 advertising new">
-                <div className="portfolio-item">
-                  <img
-                    src="assets/imgs/advertising-3.jpg"
-                    className="img-fluid"
-                    alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates"
-                  />
-                  <div className="content-holder">
-                    <a
-                      className="img-popup"
-                      href="assets/imgs/advertising-3.jpg"
-                    />
-                    <div className="text-holder">
-                      <h6 className="title">ADVERSITING</h6>
-                      <p className="subtitle">
-                        Expedita corporis doloremque velit in totam!
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-6 col-lg-4 advertising new">
-                <div className="portfolio-item">
-                  <img
-                    src="assets/imgs/advertising-4.jpg"
-                    className="img-fluid"
-                    alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates"
-                  />
-                  <div className="content-holder">
-                    <a
-                      className="img-popup"
-                      href="assets/imgs/advertising-4.jpg"
-                    />
-                    <div className="text-holder">
-                      <h6 className="title">ADVERTISING</h6>
-                      <p className="subtitle">
-                        Expedita corporis doloremque velit in totam!
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-6 col-lg-4 branding new">
-                <div className="portfolio-item">
-                  <img
-                    src="assets/imgs/branding-1.jpg"
-                    className="img-fluid"
-                    alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates"
-                  />
-                  <div className="content-holder">
-                    <a
-                      className="img-popup"
-                      href="assets/imgs/branding-1.jpg"
-                    />
-                    <div className="text-holder">
-                      <h6 className="title">BRANDING</h6>
-                      <p className="subtitle">
-                        Expedita corporis doloremque velit in totam!
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-6 col-lg-4 branding">
-                <div className="portfolio-item">
-                  <img
-                    src="assets/imgs/branding-2.jpg"
-                    className="img-fluid"
-                    alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates"
-                  />
-                  <div className="content-holder">
-                    <a
-                      className="img-popup"
-                      href="assets/imgs/branding-2.jpg"
-                    />
-                    <div className="text-holder">
-                      <h6 className="title">BRANDING</h6>
-                      <p className="subtitle">
-                        Expedita corporis doloremque velit in totam!
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-6 col-lg-4 branding new">
-                <div className="portfolio-item">
-                  <img
-                    src="assets/imgs/branding-3.jpg"
-                    className="img-fluid"
-                    alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates"
-                  />
-                  <div className="content-holder">
-                    <a
-                      className="img-popup"
-                      href="assets/imgs/branding-3.jpg"
-                    />
-                    <div className="text-holder">
-                      <h6 className="title">BRANDING</h6>
-                      <p className="subtitle">
-                        Expedita corporis doloremque velit in totam!
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-6 col-lg-4 branding">
-                <div className="portfolio-item">
-                  <img
-                    src="assets/imgs/branding-4.jpg"
-                    className="img-fluid"
-                    alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates"
-                  />
-                  <div className="content-holder">
-                    <a
-                      className="img-popup"
-                      href="assets/imgs/branding-4.jpg"
-                    />
-                    <div className="text-holder">
-                      <h6 className="title">BRANDING</h6>
-                      <p className="subtitle">
-                        Expedita corporis doloremque velit in totam!
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-6 col-lg-4 branding">
-                <div className="portfolio-item">
-                  <img
-                    src="assets/imgs/branding-5.jpg"
-                    className="img-fluid"
-                    alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates"
-                  />
-                  <div className="content-holder">
-                    <a
-                      className="img-popup"
-                      href="assets/imgs/branding-5.jpg"
-                    />
-                    <div className="text-holder">
-                      <h6 className="title">BRANDING</h6>
-                      <p className="subtitle">
-                        Expedita corporis doloremque velit in totam!
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> */}
-{/*
-          <div>
-            <span className="material-symbols-outlined">construction</span>
-            <h6>Work in Progress</h6>
-            <span className="material-symbols-outlined">construction</span>
+            ))}
           </div>
         </div>
       </section>
-      {/* End of portfolio section */}
-      
     </>
   );
 };

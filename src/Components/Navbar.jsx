@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
 
@@ -8,6 +8,8 @@ const Navbar = () => {
 
     const [NavClass, setNavClass] = useState("navbar sticky-top navbar-expand-lg navbar-light bg-white affix-top");
     
+    const navigate = useNavigate();
+    const { pathname } = useLocation();
 
     // Function to handle scrolling
     useEffect(() => {
@@ -32,37 +34,21 @@ const Navbar = () => {
       
     }, []);
     
-  const scrollToPortfolio = () => {
-    const portfolioSection = document.getElementById("portfolio");
-    if (portfolioSection) {
-      portfolioSection.scrollIntoView({ behavior: "smooth" });
+  // Scroll to a section of the home page; from another page, go home first
+  const scrollToSection = (id) => {
+    if (pathname !== "/") {
+      navigate("/");
+      setTimeout(() => {
+        const section = document.getElementById(id);
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+      return;
     }
-  };
-  const scrollToContact = () => {
-    const portfolioSection = document.getElementById("contact");
-    if (portfolioSection) {
-      portfolioSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  const scrollToResume = () => {
-    const portfolioSection = document.getElementById("resume");
-    if (portfolioSection) {
-      portfolioSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  const scrollToAbout = () => { 
-    const portfolioSection = document.getElementById("about");
-    if (portfolioSection) {
-      portfolioSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  const scrollToHome = () => {  
-    const portfolioSection = document.getElementById("home");
-    if (portfolioSection) {
-      portfolioSection.scrollIntoView({ behavior: "smooth" });
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -94,7 +80,7 @@ const Navbar = () => {
                 <button
                   href="#home"
                   className="btn btn-link nav-link"
-                  onClick={scrollToHome}
+                  onClick={() => scrollToSection("home")}
                 >
                   Home
                 </button>
@@ -104,7 +90,7 @@ const Navbar = () => {
                 <button
                   href="#about"
                   className="btn btn-link nav-link"
-                  onClick={scrollToAbout}
+                  onClick={() => scrollToSection("about")}
                 >
                   About
                 </button>
@@ -113,7 +99,7 @@ const Navbar = () => {
                 <button
                   href="#resume"
                   className="btn btn-link nav-link"
-                  onClick={scrollToResume}
+                  onClick={() => scrollToSection("resume")}
                 >
                   Resume
                 </button>
@@ -131,20 +117,16 @@ const Navbar = () => {
               <li className="brand-txt scrolled">
                 <h5 className="brand-title">Ahmed OTHMAN</h5>
                 <div className="brand-subtitle">
-                  Electrical &amp; Industrial IT Engineer
+                  Maintenance Manager &amp; Industrial Automation
                 </div>
               </li>
             </ul>
 
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
-                <button
-                  href="#portfolio"
-                  className="btn btn-link nav-link"
-                  onClick={scrollToPortfolio}
-                >
-                  Portfolio
-                </button>
+                <Link to="/projects" className="btn btn-link nav-link">
+                  Projects
+                </Link>
               </li>
               
               <li className="nav-item">
@@ -157,7 +139,7 @@ const Navbar = () => {
               <button
                   href="#contact"
                   className="btn btn-link nav-link "
-                  onClick={scrollToContact}
+                  onClick={() => scrollToSection("contact")}
                 >
                   Contact
                 </button>

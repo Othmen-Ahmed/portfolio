@@ -12,8 +12,8 @@ const Header = () => {
     <div className="header-content">
       <h4 className="header-subtitle">Hello, I am</h4>
       <h1 className="header-title">Ahmed Othman</h1>
-      <h6 className="header-mono">Maintenance Manager | Siemens PCS7 | PLC/SCADA | Industry 4.0</h6>
-      <h6 className="header-mono">Experienced in Maintenance management, electrical systems and digital integration.</h6>
+      <h6 className="header-mono">Maintenance Manager &amp; Industrial Automation | Siemens PCS7 | Electrical Systems</h6>
+      <h6 className="header-mono">Maintenance strategy, failure analysis and CAPEX projects, from specification to commissioning.</h6>
 
     </div>
   </div>

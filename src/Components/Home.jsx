@@ -17,7 +17,7 @@ const Home = () => {
             <h3 className="font-weight-light">Who am I ?</h3>
             <span className="line mb-5" />
             <h5 className="mb-3">
-              Maintenance Manager | Electrical &amp; Industrial IT Engineer , Tunisia
+              Maintenance Manager &amp; Industrial Automation , Tunisia
             </h5>
             <p className="mt-20">
               Maintenance manager with 5 years of experience in the cement industry. Leads a 40-technician maintenance
@@ -99,10 +99,13 @@ const Home = () => {
                 </span>
               </div>
               <div className="col-10 ml-auto mr-3">
-                <h6>OT Programming</h6>
+                <h6>Maintenance Management</h6>
                 <p className="subtitle">
                   {" "}
-                  PCS7, AVEVA PI, TIA Portal, WinCC, Ignition
+                  Maintenance strategy and planning, KPIs (availability, MTBF,
+                  MTTR), budgeting and cost control, spare-parts and inventory
+                  management, failure analysis (RCA, 8D, PDCA, FMEA), CAPEX
+                  planning and execution
                 </p>
 
                 <hr />
@@ -118,10 +121,11 @@ const Home = () => {
                 </span>
               </div>
               <div className="col-10 ml-auto mr-3">
-                <h6>OT Networks</h6>
+                <h6>Electrical</h6>
                 <p className="subtitle">
-                  ProfiBus, ProfiNet, ModBus, Ethernet, Ciso Router
-                  administration CCNA
+                  HV/MV/LV distribution, MV transformers, protection relays and
+                  protection testing, variable frequency drives, medium voltage
+                  motors
                 </p>
                 <hr />
               </div>
@@ -132,14 +136,14 @@ const Home = () => {
                   className="material-symbols-outlined"
                   style={{ fontSize: "35px" }}
                 >
-                  language
+                  developer_board
                 </span>
               </div>
               <div className="col-10 ml-auto mr-3">
-                <h6>Full Stack Web-development</h6>
+                <h6>Industrial Automation</h6>
                 <p className="subtitle">
-                  HTML5, CSS, BootStrap5, Node.JS, React.JS, MongoDB, Windows
-                  SQL Server 2019, ExpressJS
+                  STEP 7, TIA Portal V20, PCS7 V9, CFC, SFC, WinCC Advanced V6,
+                  OPC DA, OPC UA, Profibus, Profinet, EtherNet/IP, PRONETA
                 </p>
                 <hr />
               </div>
@@ -150,13 +154,15 @@ const Home = () => {
                   className="material-symbols-outlined"
                   style={{ fontSize: "35px" }}
                 >
-                  manufacturing
+                  groups
                 </span>
               </div>
               <div className="col-10 ml-auto mr-3">
-                <h6>Product design and analysis</h6>
+                <h6>Leadership &amp; Digital</h6>
                 <p className="subtitle">
-                  SolidWorks, Ansys, Comsol Multiphysics, Matlab, Simulink
+                  Team leadership (40 technicians), technical reporting,
+                  cross-functional coordination, CCNA networking, React &amp;
+                  Node.js development
                 </p>
                 <hr />
               </div>

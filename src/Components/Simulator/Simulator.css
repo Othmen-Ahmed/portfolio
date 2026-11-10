@@ -435,3 +435,14 @@
 .si-explain p { margin: 0 0 6px; font-size: 13.5px; }
 .si-note { color: var(--ks-muted); font-size: 12px !important; }
 .fp-aux .fp-row button { min-width: 0; }
+
+/* Stats dashboard extras */
+.ks-stats-subhead { margin-top: 16px; }
+.ks-stats-wide { grid-column: 1 / -1; }
+.ks-hours { display: flex; align-items: flex-end; gap: 3px; height: 90px; margin-top: 8px; }
+.ks-hour { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; }
+.ks-hour-bar { width: 100%; background: var(--ks-value); min-height: 2px; }
+.ks-hour-label { font-size: 9px; color: var(--ks-muted); margin-top: 3px; }
+.ks-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+.ks-table th, .ks-table td { text-align: left; padding: 5px 8px; border-top: 1px solid var(--ks-edge); vertical-align: top; }
+.ks-table thead th { font-size: 11px; color: var(--ks-muted); font-weight: 600; border-top: 0; text-transform: uppercase; letter-spacing: 0.04em; }
