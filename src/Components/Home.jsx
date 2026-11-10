@@ -3,7 +3,6 @@ import Header from "./Header";
 import Navbar from "./Navbar";
 import Resume from "./Resume";
 import Mailto from "./Middleware/Mailto";
-import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -18,14 +17,14 @@ const Home = () => {
             <h3 className="font-weight-light">Who am I ?</h3>
             <span className="line mb-5" />
             <h5 className="mb-3">
-              Electrical &amp; Industrial IT Engineer | Maintenance Manager, Tunisia
+              Maintenance Manager | Electrical &amp; Industrial IT Engineer , Tunisia
             </h5>
             <p className="mt-20">
-              Electrical and industrial automation engineer with 5 years of experience in the cement industry,
-              specializing in DCS/PLC systems (Siemens PCS7, TIA Portal) and HV/MV/LV electrical maintenance.
-              Proven record in fault diagnosis, reliability improvement (8D,PDCA), CAPEX projects, commissioning,
-              and technical leadership. Fluent in English and French (C1). Seeking Automation /
-              Industrial IT engineering roles in Europe or Canada, open to relocation.
+              Maintenance manager with 5 years of experience in the cement industry. Leads a 40-technician maintenance
+              team plus contractors, with a TND 20 M maintenance and CAPEX budget. Proven record in maintenance
+              strategy and planning, failure analysis (8D, RCA, PDCA), KPI monitoring, spare-parts and cost management,
+              and CAPEX projects from specification to commissioning. Raised equipment availability from 70% to 96%.
+              Fluent in English and French (C1).
             </p>
             
             <hr></hr>
@@ -46,16 +45,8 @@ const Home = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              EU Resume
+              French Resume
             </a>
-            <br />
-            <Link
-              to="/simulator"
-              className="btn btn-danger"
-              style={{ marginTop: "10px" }}
-            >
-              Try my kiln operator simulator
-            </Link>
           </div>
 
           <div className="col-lg-4 about-card">

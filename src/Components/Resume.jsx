@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Resume = () => {
   return (
@@ -21,48 +22,64 @@ const Resume = () => {
                 <div className="card-body">
                   <h6 className="title text-danger">03/2025 - Present</h6>
                   <p>
-                    Head of Automation &amp; Industrial IT - SINOMA Cement Co Ltd{" "}
+                    Maintenance Manager - SINOMA Cement Co Ltd{" "}
                     <span style={{ fontStyle: "italic" }}>--Tunis</span>{" "}
                   </p>
                   <p className="subtitle">
-                    ● Lead the maintenance department: 40 technicians plus
-                    subcontractors.
+                    ● Head the plant’s maintenance department: 40 technicians plus contractors for CAPEX and shutdown work. Define
+maintenance strategy and set work priorities.
                   </p>
                   <p className="subtitle">
-                    ● Manage a 20 M TND maintenance and CAPEX budget.
+                    ● Own the maintenance budget and CAPEX plan (TND 20 M): forecasting, cost control and replacement of obsolete
+equipment.
+                  </p>
+                  <p className="subtitle">
+                    ● Raised equipment availability from 70% to 96% and improved MTBF by 15% through structured failure analysis
+and continuous improvement (8D, RCA, PDCA). Raised cement mill reliability from 70% to 96% by replacing
+obsolete installations.
+                  </p>
+                  <p className="subtitle">
+                    ● Manage the maintenance programs: maintenance and replacement strategy, plant condition assessment,
+preventive and corrective plans, KPI monitoring (availability, MTBF, downtime), spare-parts and warehouse
+management, and failure analysis.
+                  </p>
+                  <p className="subtitle">
+                    ● Advise the Plant Manager through weekly technical reporting, KPI reviews, new-installation studies (10 MWac PV
+feasibility study, alternative-fuel impact on induced-draft fan power) and the 5-year Plant Development Plan.
+                  </p>
+                  <p className="subtitle">
+                    ● Project Lead, 5000 kVA MV transformer commissioning (07/2026): civil works, factory test validation, protection
+relay configuration and testing, Tunisian regulatory compliance.
+                  </p>
+                  <p className="subtitle">
+                    ● Defined SOPs for critical tasks to improve safety and repeatability, and set up a communication framework with
+production and quality.
                   </p>
                   <hr />
                   <h6 className="title text-danger">02/2022 - 03/2025</h6>
                   <p>
                     Industrial IT Specialist - Votorantim Cimentos{" "}
-                    <span style={{ fontStyle: "italic" }}>--Tunisia</span>{" "}
+                    <span style={{ fontStyle: "italic" }}>-Tunisia</span>{" "}
                   </p>
                   <p className="subtitle">
-                    ● Interim Electrical Maintenance Manager for one year,
-                    leading a team of 18.
+                    ● Stepped in as Electrical Maintenance Manager at very short notice, leading a team of 18 and ensuring continuity
+of maintenance operations for one year.
                   </p>
                   <p className="subtitle">
-                    ● Led efforts of PCS7 system audit, resolving networking
-                    errors and implementing a spare parts strategy for enhanced
-                    reliability and minimal downtime. Fully eliminated fugitive
-                    networking faults and maintained 100% reliability for two
-                    consecutive years.
+                    ● Maintained and continuously improved the plant process control system (PCS7, 14 S7-400 stations, 60 control
+cabinets);monitored electrical energy and ensured regulatory compliance.
                   </p>
                   <p className="subtitle">
-                    ● Boosted operational efficiency by 30%, enabling faster
-                    decision-making and reducing manual reporting time.
-                    Orchestrated seamless integration of LIMS and AVEVA PI with
-                    existing DCS, facilitating real-time reporting for
-                    statistical analysis and operations.
+                    ● Led full PCS7 system audits, identifying reliability improvements.
                   </p>
                   <p className="subtitle">
-                    ● Maintained zero production downtime during a major system
-                    upgrade by designing and implementing a new OT network
-                    architecture. Enabled concurrent operation of old and new
-                    crushing systems, ensuring continuous limestone production
-                    throughout the transition.
+                    ● Implemented a spare-parts strategy achieving 100% equipment availability and cutting the maintenance budget
+by 5% (1.2M TND).
                   </p>
-                  <hr />
+                  <p className="subtitle">
+                    ● Used PRONETA and nmap in industrial network testing campaigns, sustaining near-100% network availability.
+                  </p>
+                  
                 </div>
               </div>
             </div>
@@ -352,7 +369,9 @@ const Resume = () => {
                     profitability. Communication with the current DCS(SIemens PCS7) 
                     was done using OPC DA. Switching logic was configured to grafully 
                     transition between normal and automatic operations.
+                    
                   </p>
+                  
                   <figure className="text-center">
                     <img
                       src="./assets/imgs/optimization-with-apc.jpg"
@@ -361,6 +380,13 @@ const Resume = () => {
                     />
                     <figcaption>MPC Optimization with ABB APC</figcaption>
                   </figure>
+                  <Link
+                    to="/simulator"
+                    className="btn btn-danger"
+                    style={{ marginTop: "10px" }}
+                  >
+                    Try my kiln operator simulator
+                  </Link>
                 </div>
               </div>
             </div>
@@ -464,7 +490,7 @@ const Resume = () => {
       </section>
 
       {/* Portfolio Section */}
-      <section className="section bg-custom-gray" id="portfolio">
+      {/* <section className="section bg-custom-gray" id="portfolio">
         <div className="container">
           <h1 className="mb-5">
             <span className="text-danger">My</span> Projects
@@ -748,7 +774,7 @@ const Resume = () => {
               </div>
             </div>
           </div> */}
-
+{/*
           <div>
             <span className="material-symbols-outlined">construction</span>
             <h6>Work in Progress</h6>
@@ -757,6 +783,7 @@ const Resume = () => {
         </div>
       </section>
       {/* End of portfolio section */}
+      
     </>
   );
 };
