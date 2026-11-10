@@ -8,12 +8,54 @@
 //   ADMIN_KEY      secret, the password for your private stats page
 //   ALLOWED_ORIGIN variable, https://othmen-ahmed.github.io
 
-const PAGES = new Set(["home", "simulator"]);
+const PAGES = new Set(["home", "simulator", "projects"]);
 
 async function sha256(text) {
   const data = new TextEncoder().encode(text);
   const hash = await crypto.subtle.digest("SHA-256", data);
   return [...new Uint8Array(hash)].map((b) => b.toString(16).padStart(2, "0")).join("");
+}
+
+function parseUserAgent(ua) {
+  const u = ua || "";
+  const device = /Mobi/.test(u) ? "Mobile" : /iPad|Tablet/.test(u) ? "Tablet" : "Desktop";
+  const os = /Windows/.test(u) ? "Windows"
+    : /Android/.test(u) ? "Android"
+    : /iPhone|iPad|iPod/.test(u) ? "iOS"
+    : /Mac OS X/.test(u) ? "macOS"
+    : /Linux/.test(u) ? "Linux"
+    : "Other";
+  const browser = /Edg\//.test(u) ? "Edge"
+    : /OPR\//.test(u) ? "Opera"
+    : /Chrome\//.test(u) ? "Chrome"
+    : /Safari\//.test(u) ? "Safari"
+    : /Firefox\//.test(u) ? "Firefox"
+    : "Other";
+  return { device, os, browser };
+}
+
+function referrerHost(referrer) {
+  if (!referrer) return "";
+  try {
+    return new URL(referrer).host || "";
+  } catch (_) {
+    return "";
+  }
+}
+
+function localHour(timezone) {
+  if (!timezone) return null;
+  try {
+    const hour = new Date().toLocaleString("en-GB", {
+      timeZone: timezone,
+      hour: "numeric",
+      hour12: false,
+    });
+    const n = parseInt(hour, 10);
+    return Number.isNaN(n) ? null : n;
+  } catch (_) {
+    return null;
+  }
 }
 
 function json(body, status, cors) {
@@ -46,11 +88,26 @@ export default {
       } catch (_) { /* default page */ }
       const ip = request.headers.get("CF-Connecting-IP") || "unknown";
       const ipHash = await sha256(`${env.SALT}|${ip}`);
-      const country = (request.cf && request.cf.country) || "";
+      const cf = request.cf || {};
+      const { device, os, browser } = parseUserAgent(request.headers.get("User-Agent"));
       // The PRIMARY KEY (ip_hash, page) makes repeat visits from the same IP a no-op
       await env.DB.prepare(
-        "INSERT OR IGNORE INTO visits (ip_hash, page, country, first_seen) VALUES (?, ?, ?, ?)"
-      ).bind(ipHash, page, country, new Date().toISOString()).run();
+        "INSERT OR IGNORE INTO visits (ip_hash, page, country, first_seen, city, region, timezone, referrer, device, os, browser, local_hour) " +
+        "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+      ).bind(
+        ipHash,
+        page,
+        cf.country || "",
+        new Date().toISOString(),
+        cf.city || "",
+        cf.region || "",
+        cf.timezone || "",
+        referrerHost(request.headers.get("Referer")),
+        device,
+        os,
+        browser,
+        localHour(cf.timezone)
+      ).run();
       return json({ ok: true }, 200, cors);
     }
 
@@ -61,7 +118,10 @@ export default {
         return json({ error: "Wrong key" }, 401, cors);
       }
       const db = env.DB;
-      const [total, byPage, byCountry, byDay] = await Promise.all([
+      const [
+        total, byPage, byCountry, byDay, byCity, byTimezone,
+        byReferrer, byDevice, byOs, byBrowser, byHour, recent,
+      ] = await Promise.all([
         db.prepare("SELECT COUNT(DISTINCT ip_hash) AS n FROM visits").first(),
         db.prepare("SELECT page, COUNT(*) AS n FROM visits GROUP BY page").all(),
         db.prepare(
@@ -71,9 +131,54 @@ export default {
           "SELECT substr(first_seen, 1, 10) AS day, COUNT(DISTINCT ip_hash) AS n FROM visits " +
           "WHERE first_seen >= date('now', '-30 day') GROUP BY day ORDER BY day"
         ).all(),
+        db.prepare(
+          "SELECT city, country, COUNT(DISTINCT ip_hash) AS n FROM visits " +
+          "WHERE city != '' GROUP BY city, country ORDER BY n DESC LIMIT 15"
+        ).all(),
+        db.prepare(
+          "SELECT timezone, COUNT(DISTINCT ip_hash) AS n FROM visits " +
+          "WHERE timezone != '' GROUP BY timezone ORDER BY n DESC LIMIT 10"
+        ).all(),
+        db.prepare(
+          "SELECT referrer, COUNT(DISTINCT ip_hash) AS n FROM visits " +
+          "WHERE referrer != '' GROUP BY referrer ORDER BY n DESC LIMIT 10"
+        ).all(),
+        db.prepare(
+          "SELECT device, COUNT(DISTINCT ip_hash) AS n FROM visits " +
+          "WHERE device != '' GROUP BY device ORDER BY n DESC"
+        ).all(),
+        db.prepare(
+          "SELECT os, COUNT(DISTINCT ip_hash) AS n FROM visits " +
+          "WHERE os != '' GROUP BY os ORDER BY n DESC LIMIT 10"
+        ).all(),
+        db.prepare(
+          "SELECT browser, COUNT(DISTINCT ip_hash) AS n FROM visits " +
+          "WHERE browser != '' GROUP BY browser ORDER BY n DESC LIMIT 10"
+        ).all(),
+        db.prepare(
+          "SELECT local_hour AS hour, COUNT(DISTINCT ip_hash) AS n FROM visits " +
+          "WHERE local_hour IS NOT NULL GROUP BY local_hour ORDER BY local_hour"
+        ).all(),
+        db.prepare(
+          "SELECT page, country, city, device, os, browser, referrer, first_seen FROM visits " +
+          "ORDER BY first_seen DESC LIMIT 20"
+        ).all(),
       ]);
       return json(
-        { total: total.n, byPage: byPage.results, byCountry: byCountry.results, byDay: byDay.results },
+        {
+          total: total.n,
+          byPage: byPage.results,
+          byCountry: byCountry.results,
+          byDay: byDay.results,
+          byCity: byCity.results,
+          byTimezone: byTimezone.results,
+          byReferrer: byReferrer.results,
+          byDevice: byDevice.results,
+          byOs: byOs.results,
+          byBrowser: byBrowser.results,
+          byHour: byHour.results,
+          recent: recent.results,
+        },
         200,
         cors
       );
