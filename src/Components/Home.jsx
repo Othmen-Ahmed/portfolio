@@ -21,15 +21,11 @@ const Home = () => {
               Electrical &amp; Industrial IT Engineer | Maintenance Manager, Tunisia
             </h5>
             <p className="mt-20">
-              Mechatronics engineer (valedictorian, ENISo) with a strong
-              background in automation and industrial networking (Siemens PCS7,
-              TIA Portal). I currently head the Automation &amp; Industrial IT
-              department at SINOMA Cement, leading the maintenance team of 40
-              technicians plus subcontractors and managing a 20 M TND
-              maintenance and CAPEX budget. Previously at Votorantim Cimentos,
-              I led PCS7 upgrades and audits, integrated LIMS and AVEVA PI
-              (+30% operational efficiency) and served one year as interim
-              Electrical Maintenance Manager.
+              Electrical and industrial automation engineer with 5 years of experience in the cement industry,
+              specializing in DCS/PLC systems (Siemens PCS7, TIA Portal) and HV/MV/LV electrical maintenance.
+              Proven record in fault diagnosis, reliability improvement (8D,PDCA), CAPEX projects, commissioning,
+              and technical leadership. Fluent in English and French (C1). Seeking Automation /
+              Industrial IT engineering roles in Europe or Canada, open to relocation.
             </p>
             
             <hr></hr>
