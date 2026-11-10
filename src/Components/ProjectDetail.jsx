@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import Header from "./Header";
 import Navbar from "./Navbar";
+import Contact from "./Contact";
 import { getProject } from "../data/projects";
 
 const ProjectDetail = () => {
@@ -24,6 +25,7 @@ const ProjectDetail = () => {
             </Link>
           </div>
         </section>
+        <Contact />
       </>
     );
   }
@@ -100,6 +102,8 @@ const ProjectDetail = () => {
           </div>
         </div>
       </section>
+
+      <Contact />
     </>
   );
 };

@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Header from "./Header";
 import Navbar from "./Navbar";
+import Contact from "./Contact";
 import projects from "../data/projects";
 
 const Projects = () => {
@@ -59,6 +60,8 @@ const Projects = () => {
           </div>
         </div>
       </section>
+
+      <Contact />
     </>
   );
 };

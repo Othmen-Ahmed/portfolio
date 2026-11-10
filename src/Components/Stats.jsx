@@ -6,6 +6,23 @@ import "./Simulator/Simulator.css";
 
 const KEY_STORE = "ao-stats-key";
 
+// Defaults for every field so the page still works with an older worker
+// that has not been redeployed with the new columns yet.
+const EMPTY_DATA = {
+  total: 0,
+  byPage: [],
+  byDay: [],
+  byCountry: [],
+  byCity: [],
+  byTimezone: [],
+  byReferrer: [],
+  byDevice: [],
+  byOs: [],
+  byBrowser: [],
+  byHour: [],
+  recent: [],
+};
+
 const PAGE_LABELS = { home: "Portfolio page", simulator: "Kiln simulator", projects: "Projects" };
 const pageLabel = (page) => PAGE_LABELS[page] || page;
 
@@ -48,7 +65,7 @@ const Stats = () => {
         return;
       }
       if (!res.ok) throw new Error(`Worker answered ${res.status}`);
-      setData(await res.json());
+      setData({ ...EMPTY_DATA, ...(await res.json()) });
       try { localStorage.setItem(KEY_STORE, k); } catch { /* ignore */ }
     } catch (e) {
       setError(`Could not reach the counter: ${e.message}`);

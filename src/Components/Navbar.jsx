@@ -35,15 +35,10 @@ const Navbar = () => {
     }, []);
     
   // Scroll to a section of the home page; from another page, go home first
+  // and let Home scroll to the section once it has rendered
   const scrollToSection = (id) => {
     if (pathname !== "/") {
-      navigate("/");
-      setTimeout(() => {
-        const section = document.getElementById(id);
-        if (section) {
-          section.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 100);
+      navigate("/", { state: { scrollTo: id } });
       return;
     }
     const section = document.getElementById(id);
