@@ -1,0 +1,117 @@
+/* Project list and project pages. Built on the JohnDoe template (Bootstrap 4),
+   these rules only add what the template has no class for. */
+
+.pj-page { padding-top: 40px; }
+.pj-page .breadcrumb { margin-bottom: 28px; }
+.pj-page .breadcrumb-item a:hover { color: #F85C70; }
+
+.pj-meta {
+  font-size: 13px;
+  font-weight: 600;
+  color: #6c757d;
+  opacity: 1;
+}
+.pj-lead {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #343a40;
+  opacity: 1;
+  max-width: 62ch;
+}
+.pj-tag {
+  font-size: 12px;
+  font-weight: 600;
+  color: #495057;
+  border: 1px solid #dee2e6;
+  padding: 5px 9px;
+  margin: 0 6px 6px 0;
+  white-space: normal;
+  text-align: left;
+}
+
+/* List */
+.pj-row { overflow: hidden; }
+.pj-row h4 a:hover { color: #F85C70 !important; text-decoration: none; }
+.pj-thumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 220px;
+  background: #f2f4f7;
+}
+.pj-thumb img { width: 100%; height: 100%; min-height: 220px; max-height: 300px; object-fit: cover; }
+.pj-thumb i { font-size: 64px; }
+.pj-thumb:hover { text-decoration: none; }
+
+/* One project */
+.pj-title {
+  font-size: calc(26px + (40 - 26) * ((100vw - 300px) / (1300 - 300)));
+  line-height: 1.15;
+  max-width: 22em;
+  margin-bottom: 18px;
+}
+.pj-facts-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+  font-size: 15px;
+  color: #495057;
+  margin-bottom: 36px;
+}
+.pj-facts-line i { margin-right: 6px; }
+
+.pj-article { margin-bottom: 30px; }
+.pj-article p,
+.pj-article li {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #343a40;
+  opacity: 1;
+  max-width: 68ch;
+}
+.pj-article .pj-lead { font-size: 18px; margin-bottom: 28px; }
+.pj-heading { margin: 36px 0 14px; }
+.pj-list { padding-left: 20px; margin-bottom: 20px; }
+.pj-list li { margin-bottom: 6px; }
+.pj-list li::marker { color: #F85C70; }
+
+.pj-figure { margin: 0 0 28px; }
+.pj-figure img { border-radius: 3px; }
+.pj-figure figcaption { font-size: 13px; color: #6c757d; margin-top: 8px; }
+.pj-cover img { width: 100%; max-height: 460px; object-fit: cover; }
+.pj-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 12px;
+}
+.pj-gallery img { width: 100%; height: 180px; object-fit: cover; }
+
+.pj-table { font-size: 15px; }
+.pj-table th { border-top: 0; color: #343a40; }
+.pj-quote {
+  border-left: 3px solid #F85C70;
+  padding: 4px 0 4px 20px;
+  margin: 28px 0;
+}
+.pj-quote p { font-size: 18px; margin-bottom: 6px; }
+.pj-quote footer { font-size: 13px; color: #6c757d; }
+
+.pj-results li { display: flex; gap: 10px; margin-bottom: 10px; font-size: 14px; color: #495057; }
+.pj-results i { margin-top: 3px; }
+
+.pj-neighbours a:hover { text-decoration: none; }
+.pj-neighbours a:hover h6 { color: #F85C70 !important; }
+
+/* Project cards of the home page */
+.pj-card { height: calc(100% - 3rem); }
+.pj-card .card-body { display: flex; flex-direction: column; }
+.pj-card .card-title a { color: inherit; }
+.pj-card .card-title a:hover { color: #F85C70; text-decoration: none; }
+.pj-card .pj-card-more { margin-top: auto; align-self: flex-start; }
+
+/* Closing band */
+.pj-footer-social { margin-left: auto; margin-right: auto; max-width: 110px; }
+.pj-footer-mail a { color: #fff; text-decoration: underline; }
+.pj-footer-mail a:hover { color: #F85C70; }

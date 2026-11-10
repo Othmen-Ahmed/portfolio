@@ -1,16 +1,26 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
-const Navbar = () => {
+// solid: used on the pages without the big header (projects), where the bar
+// shows the name at once instead of waiting for the visitor to scroll
+const Navbar = ({ solid = false }) => {
 
     // Legacy no longer in use
     const [scrolled, setScrolled] = useState(false);
 
-    const [NavClass, setNavClass] = useState("navbar sticky-top navbar-expand-lg navbar-light bg-white affix-top");
-    
+    const [NavClass, setNavClass] = useState(
+      solid
+        ? "navbar sticky-top navbar-expand-lg navbar-light bg-white affix"
+        : "navbar sticky-top navbar-expand-lg navbar-light bg-white affix-top"
+    );
+
+    const navigate = useNavigate();
+    const { pathname } = useLocation();
 
     // Function to handle scrolling
     useEffect(() => {
+      if (solid) return undefined;
+
       const handleScroll = () => {
         const scrollPosition = window.scrollY;
         if (scrollPosition > 550) { 
@@ -30,41 +40,26 @@ const Navbar = () => {
         window.removeEventListener("scroll", handleScroll);
       };
       
-    }, []);
-    
-  const scrollToPortfolio = () => {
-    const portfolioSection = document.getElementById("portfolio");
-    if (portfolioSection) {
-      portfolioSection.scrollIntoView({ behavior: "smooth" });
+    }, [solid]);
+
+  // Scroll to a section of the home page. From another page, go home first:
+  // Home reads the section name and scrolls once it is displayed.
+  const scrollToSection = (id) => {
+    if (pathname !== "/") {
+      navigate("/", { state: { scrollTo: id } });
+      return;
     }
-  };
-  const scrollToContact = () => {
-    const portfolioSection = document.getElementById("contact");
-    if (portfolioSection) {
-      portfolioSection.scrollIntoView({ behavior: "smooth" });
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
     }
   };
 
-  const scrollToResume = () => {
-    const portfolioSection = document.getElementById("resume");
-    if (portfolioSection) {
-      portfolioSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  const scrollToAbout = () => { 
-    const portfolioSection = document.getElementById("about");
-    if (portfolioSection) {
-      portfolioSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  const scrollToHome = () => {  
-    const portfolioSection = document.getElementById("home");
-    if (portfolioSection) {
-      portfolioSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  const scrollToPortfolio = () => scrollToSection("portfolio");
+  const scrollToContact = () => scrollToSection("contact");
+  const scrollToResume = () => scrollToSection("resume");
+  const scrollToAbout = () => scrollToSection("about");
+  const scrollToHome = () => scrollToSection("home");
 
   return (
     <>
@@ -131,20 +126,16 @@ const Navbar = () => {
               <li className="brand-txt scrolled">
                 <h5 className="brand-title">Ahmed OTHMAN</h5>
                 <div className="brand-subtitle">
-                  Electrical &amp; Industrial IT Engineer
+                  Maintenance Manager &amp; Industrial Automation
                 </div>
               </li>
             </ul>
 
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
-                <button
-                  href="#portfolio"
-                  className="btn btn-link nav-link"
-                  onClick={scrollToPortfolio}
-                >
-                  Portfolio
-                </button>
+                <Link to="/projects" className="btn btn-link nav-link">
+                  Projects
+                </Link>
               </li>
               
               <li className="nav-item">

@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Header from "./Header";
 import Navbar from "./Navbar";
 import Resume from "./Resume";
 import Mailto from "./Middleware/Mailto";
 
 const Home = () => {
+  const { state } = useLocation();
+
+  // Coming from another page through a navbar button (About, Resume, Contact...):
+  // scroll to the section that was asked for
+  useEffect(() => {
+    if (!state || !state.scrollTo) return;
+    const section = document.getElementById(state.scrollTo);
+    if (section) section.scrollIntoView();
+  }, [state]);
+
   return (
     <>
       <Header />
@@ -17,7 +28,7 @@ const Home = () => {
             <h3 className="font-weight-light">Who am I ?</h3>
             <span className="line mb-5" />
             <h5 className="mb-3">
-              Maintenance Manager | Electrical &amp; Industrial IT Engineer , Tunisia
+              Maintenance Manager &amp; Industrial Automation, Tunis, Tunisia
             </h5>
             <p className="mt-20">
               Maintenance manager with 5 years of experience in the cement industry. Leads a 40-technician maintenance
@@ -64,7 +75,7 @@ const Home = () => {
                 <span>Phone</span> : (+216) 99 987 391
               </li>
               <li>
-                <span>Location</span> : Tunisia
+                <span>Location</span> : Tunis, Tunisia
               </li>
             </ul>
             <ul className="social-icons pt-3">
@@ -95,68 +106,64 @@ const Home = () => {
                   className="material-symbols-outlined"
                   style={{ fontSize: "35px" }}
                 >
+                  engineering
+                </span>
+              </div>
+              <div className="col-10 ml-auto mr-3">
+                <h6>Maintenance Management</h6>
+                <p className="subtitle">
+                  Strategy and planning, KPIs (availability, MTBF, MTTR), budget and CAPEX, spare parts, failure analysis (RCA, 8D, PDCA, FMEA)
+                </p>
+                <hr />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-1 text-danger pt-1">
+                <span
+                  className="material-symbols-outlined"
+                  style={{ fontSize: "35px" }}
+                >
+                  groups
+                </span>
+              </div>
+              <div className="col-10 ml-auto mr-3">
+                <h6>Leadership</h6>
+                <p className="subtitle">
+                  40-technician team, contractors and suppliers, reporting to plant management, coordination with production, process and quality
+                </p>
+                <hr />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-1 text-danger pt-1">
+                <span
+                  className="material-symbols-outlined"
+                  style={{ fontSize: "35px" }}
+                >
+                  bolt
+                </span>
+              </div>
+              <div className="col-10 ml-auto mr-3">
+                <h6>Electrical</h6>
+                <p className="subtitle">
+                  HV/MV/LV distribution, MV transformers, protection relays and protection testing, variable frequency drives, medium voltage motors
+                </p>
+                <hr />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-1 text-danger pt-1">
+                <span
+                  className="material-symbols-outlined"
+                  style={{ fontSize: "35px" }}
+                >
                   precision_manufacturing
                 </span>
               </div>
               <div className="col-10 ml-auto mr-3">
-                <h6>OT Programming</h6>
+                <h6>Automation</h6>
                 <p className="subtitle">
-                  {" "}
-                  PCS7, AVEVA PI, TIA Portal, WinCC, Ignition
-                </p>
-
-                <hr />
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-1 text-danger pt-1">
-                <span
-                  className="material-symbols-outlined"
-                  style={{ fontSize: "35px" }}
-                >
-                  network_node
-                </span>
-              </div>
-              <div className="col-10 ml-auto mr-3">
-                <h6>OT Networks</h6>
-                <p className="subtitle">
-                  ProfiBus, ProfiNet, ModBus, Ethernet, Ciso Router
-                  administration CCNA
-                </p>
-                <hr />
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-1 text-danger pt-1">
-                <span
-                  className="material-symbols-outlined"
-                  style={{ fontSize: "35px" }}
-                >
-                  language
-                </span>
-              </div>
-              <div className="col-10 ml-auto mr-3">
-                <h6>Full Stack Web-development</h6>
-                <p className="subtitle">
-                  HTML5, CSS, BootStrap5, Node.JS, React.JS, MongoDB, Windows
-                  SQL Server 2019, ExpressJS
-                </p>
-                <hr />
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-1 text-danger pt-1">
-                <span
-                  className="material-symbols-outlined"
-                  style={{ fontSize: "35px" }}
-                >
-                  manufacturing
-                </span>
-              </div>
-              <div className="col-10 ml-auto mr-3">
-                <h6>Product design and analysis</h6>
-                <p className="subtitle">
-                  SolidWorks, Ansys, Comsol Multiphysics, Matlab, Simulink
+                  PCS7 V9, TIA Portal V20, STEP 7, WinCC, OPC DA / UA, Profibus, Profinet, EtherNet/IP
                 </p>
                 <hr />
               </div>
@@ -194,7 +201,7 @@ const Home = () => {
                       <h6 className="d-inline">
                         Address :<br />{" "}
                         <span className="text-muted">
-                          Tunisia
+                          Tunis, Tunisia
                         </span>
                       </h6>
                     </div>

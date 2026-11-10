@@ -1,0 +1,110 @@
+/* Visitor dashboard. Same grey control-room look as the kiln simulator
+   (colours and type come from .ks-root in Simulator.css): one blue for
+   every measure, so that nothing shouts. */
+
+.st-root h2 { font-size: 15px; font-weight: 600; margin-bottom: 10px; }
+.st-root code { font-size: 12px; color: var(--ks-ink); background: #f3f4f1; padding: 1px 5px; border-radius: 3px; }
+.st-root .ks-top { align-items: flex-end; }
+.st-root .ks-controls button:disabled { opacity: 0.6; cursor: default; }
+.st-root .ks-controls .st-auto { flex-direction: row; align-items: center; gap: 6px; height: 34px; font-size: 13px; color: var(--ks-ink); margin: 0; }
+.st-root .ks-controls label { margin-bottom: 0; }
+.st-root .ks-controls select { max-width: 260px; }
+.st-error { margin-top: 12px; }
+
+.st-board { display: grid; gap: 16px; margin-top: 16px; }
+.st-panel {
+  background: var(--ks-panel);
+  border: 1px solid var(--ks-edge);
+  border-radius: 4px;
+  padding: 12px 14px;
+  margin: 0;
+  min-width: 0;
+}
+.st-row { display: grid; gap: 16px; align-items: start; }
+.st-row-wide { grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); }
+.st-row-even { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+.st-stack { display: grid; gap: 16px; min-width: 0; }
+
+/* Top numbers */
+.st-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 16px; }
+.st-tile {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background: var(--ks-panel);
+  border: 1px solid var(--ks-edge);
+  border-radius: 4px;
+  padding: 12px 14px;
+}
+.st-tile-label { font-size: 13px; font-weight: 500; }
+.st-tile-value { font-size: 32px; font-weight: 700; line-height: 1.15; color: var(--ks-value); }
+.st-tile-note { font-size: 12px; color: var(--ks-muted); }
+
+/* Visits over time */
+.st-chart figcaption,
+.st-map figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 16px; }
+.st-legend { display: flex; gap: 14px; font-size: 12px; color: var(--ks-muted); }
+.st-legend i { display: inline-block; width: 10px; height: 10px; margin-right: 4px; }
+.st-key-views { background: #a9b4c2; }
+.st-key-visitors { background: var(--ks-value); }
+.st-readout { font-size: 13px; color: var(--ks-muted); margin: 0 0 8px; min-height: 19px; opacity: 1; }
+.st-readout b { color: var(--ks-ink); font-weight: 600; margin-right: 6px; }
+.st-plot { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 8px; }
+.st-yaxis { display: flex; flex-direction: column; justify-content: space-between; text-align: right; font-size: 11px; color: var(--ks-muted); line-height: 1; min-width: 18px; }
+.st-plot svg { display: block; width: 100%; height: 200px; }
+.st-gridline { stroke: var(--ks-edge); stroke-width: 1; }
+.st-baseline { stroke: var(--ks-equip); stroke-width: 1; }
+.st-hoverband { fill: #fff; opacity: 0.55; }
+.st-bar-views { fill: #a9b4c2; }
+.st-bar-visitors { fill: var(--ks-value); }
+.st-xaxis { display: flex; justify-content: space-between; font-size: 11px; color: var(--ks-muted); margin: 6px 0 0 26px; }
+
+/* Week grid */
+.st-heat { display: grid; grid-template-columns: 30px repeat(24, minmax(0, 1fr)); gap: 2px; align-items: center; }
+.st-heat-hour { font-size: 10px; color: var(--ks-muted); line-height: 1.6; }
+.st-heat-day { font-size: 11px; color: var(--ks-muted); }
+.st-heat-cell { aspect-ratio: 1; min-height: 9px; background: #d3d6d1; border-radius: 1px; }
+
+/* Map */
+.st-map svg { display: block; width: 100%; height: auto; }
+.st-map .st-readout { margin: 0; }
+.st-land { fill: #bfc4be; }
+.st-dot { fill: var(--ks-value); fill-opacity: 0.7; stroke: #f3f4f1; stroke-width: 1; cursor: default; }
+.st-dot-on { fill-opacity: 1; stroke: var(--ks-ink); stroke-width: 1.5; }
+
+/* Ranked lists */
+.st-bars { list-style: none; padding: 0; margin: 0; font-size: 13px; max-height: 264px; overflow-y: auto; }
+.st-bars li { display: grid; grid-template-columns: minmax(0, 1fr) 56px 30px 36px; align-items: center; gap: 8px; padding: 3px 0; }
+.st-bars-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.st-bars b { text-align: right; font-weight: 600; }
+.st-bars-share { text-align: right; font-size: 12px; color: var(--ks-muted); }
+
+/* Tables */
+.st-scroll { overflow-x: auto; }
+.st-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.st-table th { text-align: left; font-size: 12px; font-weight: 500; color: var(--ks-muted); padding: 4px 12px 6px 0; border-bottom: 1px solid var(--ks-edge); white-space: nowrap; }
+.st-table td { padding: 6px 12px 6px 0; border-bottom: 1px solid #d3d6d1; vertical-align: top; }
+.st-table tr:last-child td { border-bottom: 0; }
+.st-table .st-num { text-align: right; white-space: nowrap; }
+.st-table th:last-child, .st-table td:last-child { padding-right: 0; }
+.st-nowrap { white-space: nowrap; }
+
+.st-panel-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 16px; margin-bottom: 10px; }
+.st-panel-head h2 { margin: 0; }
+.st-panel-tools { display: flex; flex-wrap: wrap; gap: 8px; }
+.st-panel-tools input { height: 32px; width: 250px; max-width: 100%; border: 1px solid var(--ks-equip); border-radius: 3px; padding: 0 10px; background: var(--ks-entry); }
+.st-panel-tools button,
+.st-more { height: 32px; padding: 0 12px; border: 1px solid var(--ks-edge); border-radius: 3px; background: #f3f4f1; cursor: pointer; }
+.st-panel-tools button:disabled { opacity: 0.6; cursor: default; }
+.st-more { margin-top: 10px; }
+.st-settings .ks-hint { max-width: 80ch; }
+
+@media (max-width: 900px) {
+  .st-row-wide { grid-template-columns: minmax(0, 1fr); }
+  .st-root .ks-clock { margin-left: 0; }
+}
+@media (max-width: 520px) {
+  .st-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .st-tile-value { font-size: 26px; }
+  .st-plot svg { height: 160px; }
+}
